@@ -188,6 +188,30 @@ class SettingsPage extends ConsumerWidget {
                     title: Text(l10n.languageEnglish),
                     value: AppLanguageChoice.english,
                   ),
+                  RadioListTile<AppLanguageChoice>(
+                    title: Text(l10n.languageSpanish),
+                    value: AppLanguageChoice.spanish,
+                  ),
+                  RadioListTile<AppLanguageChoice>(
+                    title: Text(l10n.languageFrench),
+                    value: AppLanguageChoice.french,
+                  ),
+                  RadioListTile<AppLanguageChoice>(
+                    title: Text(l10n.languageGerman),
+                    value: AppLanguageChoice.german,
+                  ),
+                  RadioListTile<AppLanguageChoice>(
+                    title: Text(l10n.languageItalian),
+                    value: AppLanguageChoice.italian,
+                  ),
+                  RadioListTile<AppLanguageChoice>(
+                    title: Text(l10n.languageJapanese),
+                    value: AppLanguageChoice.japanese,
+                  ),
+                  RadioListTile<AppLanguageChoice>(
+                    title: Text(l10n.languageChineseSimplified),
+                    value: AppLanguageChoice.chineseSimplified,
+                  ),
                 ],
               ),
             ),

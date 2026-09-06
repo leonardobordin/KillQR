@@ -88,7 +88,8 @@ document support, local history and clear control over what leaves the device.
 ### Android experience
 
 - System, light, dark and AMOLED themes.
-- English and Brazilian Portuguese translations.
+- English, Brazilian Portuguese, Spanish, French, German, Italian, Japanese
+  and Simplified Chinese translations.
 - Quick Settings tile named **Scan with KillQR**.
 - Flashlight, camera switching, document import and scan modes are available in
   the top action bar, with an overflow menu on narrow screens.

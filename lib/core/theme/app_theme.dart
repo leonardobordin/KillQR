@@ -4,7 +4,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 enum AppThemeChoice { system, light, dark, amoled }
 
-enum AppLanguageChoice { system, portugueseBrazil, english }
+enum AppLanguageChoice {
+  system,
+  portugueseBrazil,
+  english,
+  spanish,
+  french,
+  german,
+  italian,
+  japanese,
+  chineseSimplified,
+}
 
 final appSettingsProvider = ChangeNotifierProvider<AppSettingsController>(
   (ref) => AppSettingsController()..load(),
@@ -113,6 +123,18 @@ class AppSettingsController extends ChangeNotifier {
         return const Locale('pt', 'BR');
       case AppLanguageChoice.english:
         return const Locale('en');
+      case AppLanguageChoice.spanish:
+        return const Locale('es');
+      case AppLanguageChoice.french:
+        return const Locale('fr');
+      case AppLanguageChoice.german:
+        return const Locale('de');
+      case AppLanguageChoice.italian:
+        return const Locale('it');
+      case AppLanguageChoice.japanese:
+        return const Locale('ja');
+      case AppLanguageChoice.chineseSimplified:
+        return const Locale('zh', 'CN');
     }
   }
 

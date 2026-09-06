@@ -387,6 +387,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get languageEnglish => 'English';
 
   @override
+  String get languageSpanish => 'Spanish';
+
+  @override
+  String get languageFrench => 'French';
+
+  @override
+  String get languageGerman => 'German';
+
+  @override
+  String get languageItalian => 'Italian';
+
+  @override
+  String get languageJapanese => 'Japanese';
+
+  @override
+  String get languageChineseSimplified => 'Simplified Chinese';
+
+  @override
   String get saveAutomatically => 'Save results automatically';
 
   @override

@@ -6,6 +6,13 @@ Todas as alterações importantes do KillQR estão documentadas aqui.
 
 ## Não lançado
 
+### Melhorias
+
+- Adicionadas traduções para espanhol, francês, alemão, italiano, japonês e
+  chinês simplificado.
+- Adicionados os seis idiomas ao seletor do aplicativo, mantendo a opção de
+  usar o idioma do sistema.
+
 ## 0.1.6 - 2026-09-06
 
 ### Melhorias

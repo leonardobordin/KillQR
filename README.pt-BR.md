@@ -89,7 +89,8 @@ o que sai do dispositivo.
 ### Experiência Android
 
 - Temas Sistema, Claro, Escuro e AMOLED.
-- Traduções para inglês e português do Brasil.
+- Traduções para inglês, português do Brasil, espanhol, francês, alemão,
+  italiano, japonês e chinês simplificado.
 - Tile de Configurações rápidas chamado **Escanear com KillQR**.
 - Lanterna, troca de câmera, importação de documentos e modos de leitura ficam
   na barra superior, com menu de opções em telas estreitas.

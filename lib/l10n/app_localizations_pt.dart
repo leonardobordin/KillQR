@@ -388,6 +388,24 @@ class AppLocalizationsPt extends AppLocalizations {
   String get languageEnglish => 'English';
 
   @override
+  String get languageSpanish => 'Espanhol';
+
+  @override
+  String get languageFrench => 'Francês';
+
+  @override
+  String get languageGerman => 'Alemão';
+
+  @override
+  String get languageItalian => 'Italiano';
+
+  @override
+  String get languageJapanese => 'Japonês';
+
+  @override
+  String get languageChineseSimplified => 'Chinês simplificado';
+
+  @override
   String get saveAutomatically => 'Salvar resultados automaticamente';
 
   @override
@@ -1053,6 +1071,24 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get languageEnglish => 'English';
+
+  @override
+  String get languageSpanish => 'Espanhol';
+
+  @override
+  String get languageFrench => 'Francês';
+
+  @override
+  String get languageGerman => 'Alemão';
+
+  @override
+  String get languageItalian => 'Italiano';
+
+  @override
+  String get languageJapanese => 'Japonês';
+
+  @override
+  String get languageChineseSimplified => 'Chinês simplificado';
 
   @override
   String get saveAutomatically => 'Salvar resultados automaticamente';
