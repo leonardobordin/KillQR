@@ -139,6 +139,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get scanAreaSize => 'スキャン範囲';
 
   @override
+  String get resizeScanArea => '角をドラッグしてスキャン範囲を変更';
+
+  @override
   String scanAreaValue(int percent) {
     return 'スキャン範囲: $percent%';
   }
@@ -408,7 +411,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'KillQRはスキャン結果をローカルに保存し、初期設定ではオフラインで動作します。ネットワークは更新を確認するときだけ使用します。';
 
   @override
-  String get version => 'バージョン 0.1.6（ビルド7）';
+  String get version => 'バージョン 0.1.7（ビルド8）';
 
   @override
   String get createdBy => '作成者: Leonardo Silva Bordin';
@@ -497,15 +500,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get releaseNotesIntro => 'このバージョンの変更点:';
 
   @override
-  String get releaseNoteScanArea =>
-      'カメラのスキャン範囲を変更できるようになり、1つのコードをスキャンすると選択した範囲だけを解析します。';
+  String get releaseNoteScanArea => 'カメラのスキャン範囲を右下の角から自由に変更でき、幅と高さを個別に調整できます。';
 
   @override
   String get releaseNoteTopControls =>
       'ライト、カメラ切り替え、ドキュメントの読み込み、スキャンモードを上部バーにまとめました。狭い画面では追加メニューを使用できます。';
 
   @override
-  String get releaseNoteZoom => 'カメラプレビューの下部に、スキャン範囲とカメラズームのスライダーを追加しました。';
+  String get releaseNoteZoom =>
+      '1つのコードのスキャンでは選択した長方形の範囲だけを解析し、コンパクトなズーム操作で横長画面のカメラ表示を広く保てます。';
 
   @override
   String get releaseNoteModeHelp =>

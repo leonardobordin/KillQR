@@ -8,10 +8,26 @@ All notable changes to KillQR are documented here.
 
 ### Improvements
 
+- No changes yet.
+
+## 0.1.7 - 2026-09-06
+
+### Improvements
+
 - Added Spanish, French, German, Italian, Japanese and Simplified Chinese
   translations.
 - Added all six languages to the in-app language selector while preserving the
   system-language option.
+- Replaced the scan-area size slider with a draggable bottom-right handle that
+  independently resizes the width and height, allowing rectangular scan areas.
+- Limited single-code camera decoding to the selected rectangular area and
+  added a compact zoom control that preserves more camera space in wide
+  landscape layouts.
+
+### Bug fixes
+
+- Kept the visible scan area and the decoder crop aligned in portrait and
+  landscape camera orientations.
 
 ## 0.1.6 - 2026-09-06
 

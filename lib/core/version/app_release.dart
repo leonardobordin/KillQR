@@ -7,8 +7,8 @@ import '../../l10n/app_localizations.dart';
 class AppRelease {
   const AppRelease._();
 
-  static const version = '0.1.6';
-  static const buildNumber = 7;
+  static const version = '0.1.7';
+  static const buildNumber = 8;
   static const fullVersion = '$version+$buildNumber';
   static const _lastSeenPreference = 'last_seen_release';
 }

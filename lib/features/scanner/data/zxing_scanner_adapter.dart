@@ -6,6 +6,7 @@ import 'package:flutter_zxing/flutter_zxing.dart' as zxing;
 import 'package:path_provider/path_provider.dart';
 
 import '../../../core/models/scan_models.dart';
+import 'rectangular_reader.dart';
 
 class ScannerCapabilities {
   const ScannerCapabilities({
@@ -47,19 +48,15 @@ class ZxingScannerAdapter {
     required zxing.CameraLensDirection lensDirection,
     required void Function(zxing.CameraController?, Exception?)
     onControllerCreated,
-    double cropPercent = 0.5,
-    Color borderColor = Colors.white,
+    double scanAreaWidth = 0.62,
+    double scanAreaHeight = 0.52,
   }) {
-    return zxing.ReaderWidget(
+    return RectangularReaderWidget(
       key: const ValueKey('killqr-reader'),
-      isMultiScan: multiple,
       lensDirection: lensDirection,
-      codeFormat: zxing.Format.any,
-      tryHarder: true,
-      tryRotate: true,
-      tryDownscale: true,
-      maxNumberOfSymbols: 20,
-      resolution: zxing.ResolutionPreset.high,
+      multiple: multiple,
+      scanAreaWidth: scanAreaWidth,
+      scanAreaHeight: scanAreaHeight,
       onScan: (code) {
         final result = _toResult(code);
         if (result != null) onResult(result);
@@ -71,28 +68,8 @@ class ZxingScannerAdapter {
             .toList(growable: false);
         if (results.isNotEmpty) onMultipleResults?.call(results);
       },
-      onControllerCreated: (controller, error) {
-        onControllerCreated(controller, error);
-        if (error != null) onError?.call(error);
-      },
-      showScannerOverlay: true,
-      // Gallery/document selection is handled by ScannerPage so that the
-      // user gets feedback when a file is cancelled or contains no code.
-      showGallery: false,
-      // Flashlight and camera switching are controlled by ScannerPage so the
-      // actions can stay in the app bar on every screen size.
-      showToggleCamera: false,
-      showFlashlight: false,
-      allowPinchZoom: true,
-      cropPercent: cropPercent,
-      scannerOverlay: zxing.ScannerOverlayBorder(
-        cutOutSize: cropPercent,
-        borderColor: borderColor,
-        borderWidth: 3,
-        borderLength: 28,
-        borderRadius: 20,
-        overlayColor: Colors.black45,
-      ),
+      onControllerCreated: onControllerCreated,
+      onError: onError,
     );
   }
 

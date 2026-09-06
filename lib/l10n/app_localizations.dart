@@ -364,6 +364,12 @@ abstract class AppLocalizations {
   /// **'Scan area'**
   String get scanAreaSize;
 
+  /// No description provided for @resizeScanArea.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag the corner to resize the scan area'**
+  String get resizeScanArea;
+
   /// No description provided for @scanAreaValue.
   ///
   /// In en, this message translates to:
@@ -895,7 +901,7 @@ abstract class AppLocalizations {
   /// No description provided for @version.
   ///
   /// In en, this message translates to:
-  /// **'Version 0.1.6 (build 7)'**
+  /// **'Version 0.1.7 (build 8)'**
   String get version;
 
   /// No description provided for @createdBy.
@@ -1069,7 +1075,7 @@ abstract class AppLocalizations {
   /// No description provided for @releaseNoteScanArea.
   ///
   /// In en, this message translates to:
-  /// **'The camera scan area can now be resized, and single-code scans analyze only the selected region.'**
+  /// **'The camera scan area can now be freely resized from its bottom-right corner, with independent width and height.'**
   String get releaseNoteScanArea;
 
   /// No description provided for @releaseNoteTopControls.
@@ -1081,7 +1087,7 @@ abstract class AppLocalizations {
   /// No description provided for @releaseNoteZoom.
   ///
   /// In en, this message translates to:
-  /// **'Added scan-area and camera-zoom sliders at the bottom of the camera preview.'**
+  /// **'Single-code scans analyze only the selected rectangular area, and the compact zoom control preserves more camera space in wide landscape layouts.'**
   String get releaseNoteZoom;
 
   /// No description provided for @releaseNoteModeHelp.

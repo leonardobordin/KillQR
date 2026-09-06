@@ -148,6 +148,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get scanAreaSize => 'Área de leitura';
 
   @override
+  String get resizeScanArea =>
+      'Arraste o canto para redimensionar a área de leitura';
+
+  @override
   String scanAreaValue(int percent) {
     return 'Área de leitura: $percent%';
   }
@@ -422,7 +426,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'O KillQR armazena leituras localmente e funciona offline por padrão. A rede é usada somente ao verificar atualizações.';
 
   @override
-  String get version => 'Versão 0.1.6 (build 7)';
+  String get version => 'Versão 0.1.7 (build 8)';
 
   @override
   String get createdBy => 'Feito por Leonardo Silva Bordin';
@@ -513,7 +517,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get releaseNoteScanArea =>
-      'Agora é possível redimensionar a área de leitura da câmera; a leitura de um único código analisa somente a região selecionada.';
+      'Agora é possível redimensionar livremente a área de leitura pelo canto inferior direito, ajustando largura e altura de forma independente.';
 
   @override
   String get releaseNoteTopControls =>
@@ -521,7 +525,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get releaseNoteZoom =>
-      'Adicionados controles inferiores para o tamanho da área de leitura e o zoom da câmera.';
+      'A leitura de um único código analisa somente a área retangular selecionada, e o controle compacto de zoom preserva mais espaço da câmera em layouts horizontais largos.';
 
   @override
   String get releaseNoteModeHelp =>
@@ -833,6 +837,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get scanAreaSize => 'Área de leitura';
 
   @override
+  String get resizeScanArea =>
+      'Arraste o canto para redimensionar a área de leitura';
+
+  @override
   String scanAreaValue(int percent) {
     return 'Área de leitura: $percent%';
   }
@@ -1107,7 +1115,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'O KillQR armazena leituras localmente e funciona offline por padrão. A rede é usada somente ao verificar atualizações.';
 
   @override
-  String get version => 'Versão 0.1.6 (build 7)';
+  String get version => 'Versão 0.1.7 (build 8)';
 
   @override
   String get createdBy => 'Feito por Leonardo Silva Bordin';
@@ -1198,7 +1206,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get releaseNoteScanArea =>
-      'Agora é possível redimensionar a área de leitura da câmera; a leitura de um único código analisa somente a região selecionada.';
+      'Agora é possível redimensionar livremente a área de leitura pelo canto inferior direito, ajustando largura e altura de forma independente.';
 
   @override
   String get releaseNoteTopControls =>
@@ -1206,7 +1214,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get releaseNoteZoom =>
-      'Adicionados controles inferiores para o tamanho da área de leitura e o zoom da câmera.';
+      'A leitura de um único código analisa somente a área retangular selecionada, e o controle compacto de zoom preserva mais espaço da câmera em layouts horizontais largos.';
 
   @override
   String get releaseNoteModeHelp =>

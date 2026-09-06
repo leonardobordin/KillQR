@@ -8,10 +8,27 @@ Todas as alterações importantes do KillQR estão documentadas aqui.
 
 ### Melhorias
 
+- Nenhuma alteração pendente.
+
+## 0.1.7 - 2026-09-06
+
+### Melhorias
+
 - Adicionadas traduções para espanhol, francês, alemão, italiano, japonês e
   chinês simplificado.
 - Adicionados os seis idiomas ao seletor do aplicativo, mantendo a opção de
   usar o idioma do sistema.
+- Substituído o slider de tamanho da área de leitura por uma alça arrastável no
+  canto inferior direito, permitindo ajustar largura e altura de forma
+  independente e criar áreas retangulares.
+- Limitada a leitura de um único código à área retangular selecionada e
+  adicionado um controle compacto de zoom para preservar mais espaço da câmera
+  em layouts horizontais largos.
+
+### Correções de bugs
+
+- Mantido o alinhamento entre a área visível e o recorte analisado pela câmera
+  nas orientações retrato e paisagem.
 
 ## 0.1.6 - 2026-09-06
 

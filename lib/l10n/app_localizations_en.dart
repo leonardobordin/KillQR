@@ -148,6 +148,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get scanAreaSize => 'Scan area';
 
   @override
+  String get resizeScanArea => 'Drag the corner to resize the scan area';
+
+  @override
   String scanAreaValue(int percent) {
     return 'Scan area: $percent%';
   }
@@ -421,7 +424,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'KillQR stores scans locally and works offline by default. Network access is used only when you check for updates.';
 
   @override
-  String get version => 'Version 0.1.6 (build 7)';
+  String get version => 'Version 0.1.7 (build 8)';
 
   @override
   String get createdBy => 'Created by Leonardo Silva Bordin';
@@ -511,7 +514,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get releaseNoteScanArea =>
-      'The camera scan area can now be resized, and single-code scans analyze only the selected region.';
+      'The camera scan area can now be freely resized from its bottom-right corner, with independent width and height.';
 
   @override
   String get releaseNoteTopControls =>
@@ -519,7 +522,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get releaseNoteZoom =>
-      'Added scan-area and camera-zoom sliders at the bottom of the camera preview.';
+      'Single-code scans analyze only the selected rectangular area, and the compact zoom control preserves more camera space in wide landscape layouts.';
 
   @override
   String get releaseNoteModeHelp =>

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:camera/camera.dart' as camera;
 import 'package:file_selector/file_selector.dart';
@@ -40,12 +41,26 @@ class _ScannerPageState extends ConsumerState<ScannerPage> {
   int? _continuousSessionId;
   camera.CameraController? _cameraController;
   camera.CameraLensDirection _lensDirection = camera.CameraLensDirection.back;
-  double _scanAreaPercent = 0.5;
+  double _scanAreaWidth = 0.62;
+  double _scanAreaHeight = 0.52;
+  bool _scanAreaUserAdjusted = false;
   double _zoom = 1;
   double _minZoom = 1;
   double _maxZoom = 1;
   bool _flashBusy = false;
   bool _cameraSwitching = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_scanAreaUserAdjusted) return;
+
+    final size = MediaQuery.sizeOf(context);
+    final isUltrawideLandscape =
+        size.width > size.height && size.width / size.height >= 1.9;
+    _scanAreaWidth = isUltrawideLandscape ? 1.15 : 0.62;
+    _scanAreaHeight = isUltrawideLandscape ? 0.42 : 0.52;
+  }
 
   @override
   void didUpdateWidget(covariant ScannerPage oldWidget) {
@@ -105,26 +120,35 @@ class _ScannerPageState extends ConsumerState<ScannerPage> {
                       _adapter.reader(
                         multiple: _multiple,
                         lensDirection: _lensDirection,
-                        cropPercent: _scanAreaPercent,
-                        borderColor: Theme.of(context).colorScheme.primary,
+                        scanAreaWidth: _scanAreaWidth,
+                        scanAreaHeight: _scanAreaHeight,
                         onControllerCreated: _handleControllerCreated,
                         onResult: _handleResult,
                         onMultipleResults: _handleMultipleResults,
                         onError: (error) =>
                             setState(() => _cameraError = error),
                       ),
+                      if (!_multiple)
+                        Positioned.fill(
+                          child: _ScanAreaOverlay(
+                            widthFactor: _scanAreaWidth,
+                            heightFactor: _scanAreaHeight,
+                            borderColor: Theme.of(context).colorScheme.primary,
+                            onChanged: (width, height) => setState(() {
+                              _scanAreaWidth = width;
+                              _scanAreaHeight = height;
+                              _scanAreaUserAdjusted = true;
+                            }),
+                          ),
+                        ),
                       Positioned(
                         left: 12,
                         right: 12,
                         bottom: 12,
                         child: _ScannerBottomControls(
-                          scanAreaPercent: _scanAreaPercent,
                           zoom: _zoom,
                           minZoom: _minZoom,
                           maxZoom: _maxZoom,
-                          multiple: _multiple,
-                          onScanAreaChanged: (value) =>
-                              setState(() => _scanAreaPercent = value),
                           onZoomChanged: _setZoom,
                         ),
                       ),
@@ -733,21 +757,15 @@ class _ScannerMenuItemData {
 
 class _ScannerBottomControls extends StatelessWidget {
   const _ScannerBottomControls({
-    required this.scanAreaPercent,
     required this.zoom,
     required this.minZoom,
     required this.maxZoom,
-    required this.multiple,
-    required this.onScanAreaChanged,
     required this.onZoomChanged,
   });
 
-  final double scanAreaPercent;
   final double zoom;
   final double minZoom;
   final double maxZoom;
-  final bool multiple;
-  final ValueChanged<double> onScanAreaChanged;
   final ValueChanged<double> onZoomChanged;
 
   @override
@@ -755,7 +773,6 @@ class _ScannerBottomControls extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final zoomAvailable = maxZoom > minZoom;
     final safeZoom = zoom.clamp(minZoom, maxZoom).toDouble();
-    final areaValue = scanAreaPercent.clamp(0.3, 0.9).toDouble();
     final textTheme = Theme.of(context).textTheme;
     return SafeArea(
       top: false,
@@ -763,56 +780,26 @@ class _ScannerBottomControls extends StatelessWidget {
         color: Colors.black.withValues(alpha: 0.68),
         borderRadius: BorderRadius.circular(18),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(14, 8, 14, 4),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+          padding: const EdgeInsets.fromLTRB(14, 4, 14, 4),
+          child: Row(
             children: [
-              Row(
-                children: [
-                  const Icon(Icons.crop_free, color: Colors.white, size: 18),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      multiple
-                          ? l10n.fullCameraFrame
-                          : l10n.scanAreaValue((areaValue * 100).round()),
-                      style: textTheme.labelLarge?.copyWith(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ],
+              const Icon(Icons.zoom_in, color: Colors.white, size: 18),
+              const SizedBox(width: 8),
+              Text(
+                l10n.zoomValue(safeZoom.toStringAsFixed(1)),
+                style: textTheme.labelLarge?.copyWith(color: Colors.white),
               ),
-              Slider(
-                value: areaValue,
-                min: 0.3,
-                max: 0.9,
-                divisions: 12,
-                label: l10n.scanAreaValue((areaValue * 100).round()),
-                onChanged: multiple ? null : onScanAreaChanged,
-              ),
-              Row(
-                children: [
-                  const Icon(Icons.zoom_in, color: Colors.white, size: 18),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      l10n.zoomValue(safeZoom.toStringAsFixed(1)),
-                      style: textTheme.labelLarge?.copyWith(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Slider(
-                value: zoomAvailable ? safeZoom : 0,
-                min: zoomAvailable ? minZoom : 0,
-                max: zoomAvailable ? maxZoom : 1,
-                label: zoomAvailable
-                    ? l10n.zoomValue(safeZoom.toStringAsFixed(1))
-                    : l10n.zoom,
-                onChanged: zoomAvailable ? onZoomChanged : null,
+              const SizedBox(width: 8),
+              Expanded(
+                child: Slider(
+                  value: zoomAvailable ? safeZoom : 0,
+                  min: zoomAvailable ? minZoom : 0,
+                  max: zoomAvailable ? maxZoom : 1,
+                  label: zoomAvailable
+                      ? l10n.zoomValue(safeZoom.toStringAsFixed(1))
+                      : l10n.zoom,
+                  onChanged: zoomAvailable ? onZoomChanged : null,
+                ),
               ),
             ],
           ),
@@ -820,6 +807,147 @@ class _ScannerBottomControls extends StatelessWidget {
       ),
     );
   }
+}
+
+class _ScanAreaOverlay extends StatelessWidget {
+  const _ScanAreaOverlay({
+    required this.widthFactor,
+    required this.heightFactor,
+    required this.borderColor,
+    required this.onChanged,
+  });
+
+  static const _minimumSize = 96.0;
+  static const _margin = 24.0;
+  static const _bottomInset = 78.0;
+  static const _handleSize = 48.0;
+
+  final double widthFactor;
+  final double heightFactor;
+  final Color borderColor;
+  final void Function(double widthFactor, double heightFactor) onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final size = Size(constraints.maxWidth, constraints.maxHeight);
+        final shortSide = math.min(size.width, size.height);
+        final usableHeight = math.max(
+          _minimumSize + _margin * 2,
+          size.height - _bottomInset,
+        );
+        final maxWidth = math.max(_minimumSize, size.width - _margin * 2);
+        final maxHeight = math.max(_minimumSize, usableHeight - _margin * 2);
+        final width = (widthFactor * shortSide).clamp(_minimumSize, maxWidth);
+        final height = (heightFactor * shortSide).clamp(
+          _minimumSize,
+          maxHeight,
+        );
+        final scanRect = Rect.fromCenter(
+          center: Offset(size.width / 2, usableHeight / 2),
+          width: width,
+          height: height,
+        );
+
+        return Stack(
+          fit: StackFit.expand,
+          children: [
+            IgnorePointer(
+              child: CustomPaint(
+                painter: _ScanAreaPainter(
+                  scanRect: scanRect,
+                  borderColor: borderColor,
+                ),
+              ),
+            ),
+            Positioned(
+              left: scanRect.right - _handleSize / 2,
+              top: scanRect.bottom - _handleSize / 2,
+              width: _handleSize,
+              height: _handleSize,
+              child: Semantics(
+                label: l10n.resizeScanArea,
+                button: true,
+                child: Tooltip(
+                  message: l10n.resizeScanArea,
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onPanUpdate: (details) {
+                      final nextWidth = (scanRect.width + details.delta.dx)
+                          .clamp(_minimumSize, maxWidth);
+                      final nextHeight = (scanRect.height + details.delta.dy)
+                          .clamp(_minimumSize, maxHeight);
+                      onChanged(nextWidth / shortSide, nextHeight / shortSide);
+                    },
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: borderColor,
+                        shape: BoxShape.circle,
+                        boxShadow: const [
+                          BoxShadow(color: Colors.black54, blurRadius: 4),
+                        ],
+                      ),
+                      child: const Icon(
+                        Icons.open_in_full,
+                        color: Colors.white,
+                        size: 22,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _ScanAreaPainter extends CustomPainter {
+  const _ScanAreaPainter({required this.scanRect, required this.borderColor});
+
+  final Rect scanRect;
+  final Color borderColor;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final shade = Paint()..color = Colors.black.withValues(alpha: 0.54);
+    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, scanRect.top), shade);
+    canvas.drawRect(
+      Rect.fromLTWH(
+        0,
+        scanRect.bottom,
+        size.width,
+        size.height - scanRect.bottom,
+      ),
+      shade,
+    );
+    canvas.drawRect(
+      Rect.fromLTRB(0, scanRect.top, scanRect.left, scanRect.bottom),
+      shade,
+    );
+    canvas.drawRect(
+      Rect.fromLTRB(scanRect.right, scanRect.top, size.width, scanRect.bottom),
+      shade,
+    );
+
+    final border = Paint()
+      ..color = borderColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 3;
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(scanRect, const Radius.circular(20)),
+      border,
+    );
+  }
+
+  @override
+  bool shouldRepaint(_ScanAreaPainter oldDelegate) =>
+      oldDelegate.scanRect != scanRect ||
+      oldDelegate.borderColor != borderColor;
 }
 
 class _CameraErrorBanner extends StatelessWidget {
