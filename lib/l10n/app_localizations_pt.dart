@@ -426,7 +426,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'O KillQR armazena leituras localmente e funciona offline por padrão. A rede é usada somente ao verificar atualizações.';
 
   @override
-  String get version => 'Versão 0.1.7 (build 8)';
+  String get version => 'Versão 0.1.8 (build 9)';
 
   @override
   String get createdBy => 'Feito por Leonardo Silva Bordin';
@@ -525,7 +525,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get releaseNoteZoom =>
-      'A leitura de um único código analisa somente a área retangular selecionada, e o controle compacto de zoom preserva mais espaço da câmera em layouts horizontais largos.';
+      'O controle de zoom fica horizontal no retrato e vertical à direita no landscape; a leitura de um único código analisa somente a área retangular selecionada.';
 
   @override
   String get releaseNoteModeHelp =>
@@ -533,7 +533,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get releaseNoteCameraOverlay =>
-      'Removidos o antigo botão flutuante de vários códigos e o indicador do modo contínuo sobre a prévia da câmera.';
+      'A máscara da câmera agora acompanha a borda arredondada da área de leitura, sem cantos claros vazando para fora.';
 
   @override
   String get releaseNoteContinuousIndicator =>
@@ -1115,7 +1115,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'O KillQR armazena leituras localmente e funciona offline por padrão. A rede é usada somente ao verificar atualizações.';
 
   @override
-  String get version => 'Versão 0.1.7 (build 8)';
+  String get version => 'Versão 0.1.8 (build 9)';
 
   @override
   String get createdBy => 'Feito por Leonardo Silva Bordin';
@@ -1214,7 +1214,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get releaseNoteZoom =>
-      'A leitura de um único código analisa somente a área retangular selecionada, e o controle compacto de zoom preserva mais espaço da câmera em layouts horizontais largos.';
+      'O controle de zoom fica horizontal no retrato e vertical à direita no landscape; a leitura de um único código analisa somente a área retangular selecionada.';
 
   @override
   String get releaseNoteModeHelp =>
@@ -1222,7 +1222,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get releaseNoteCameraOverlay =>
-      'Removidos o antigo botão flutuante de vários códigos e o indicador do modo contínuo sobre a prévia da câmera.';
+      'A máscara da câmera agora acompanha a borda arredondada da área de leitura, sem cantos claros vazando para fora.';
 
   @override
   String get releaseNoteContinuousIndicator =>

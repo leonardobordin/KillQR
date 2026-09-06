@@ -411,7 +411,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'KillQRはスキャン結果をローカルに保存し、初期設定ではオフラインで動作します。ネットワークは更新を確認するときだけ使用します。';
 
   @override
-  String get version => 'バージョン 0.1.7（ビルド8）';
+  String get version => 'バージョン 0.1.8（ビルド9）';
 
   @override
   String get createdBy => '作成者: Leonardo Silva Bordin';
@@ -508,7 +508,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get releaseNoteZoom =>
-      '1つのコードのスキャンでは選択した長方形の範囲だけを解析し、コンパクトなズーム操作で横長画面のカメラ表示を広く保てます。';
+      'ズーム操作は縦向きでは横向き、横向きでは右側に縦向きで表示され、1つのコードのスキャンでは選択した長方形の範囲だけを解析します。';
 
   @override
   String get releaseNoteModeHelp =>
@@ -516,7 +516,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get releaseNoteCameraOverlay =>
-      'カメラプレビューから、以前の複数コード用フローティングボタンと連続モード表示を削除しました。';
+      'カメラのマスクがスキャン範囲の角丸の境界に沿うようになり、外側に明るい角が表示されなくなりました。';
 
   @override
   String get releaseNoteContinuousIndicator =>

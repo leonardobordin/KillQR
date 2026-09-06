@@ -6,9 +6,16 @@ All notable changes to KillQR are documented here.
 
 ## Unreleased
 
+## 0.1.8 - 2026-09-06
+
 ### Improvements
 
-- No changes yet.
+- Made the zoom control vertical on the right side in landscape orientation.
+
+### Bug fixes
+
+- Matched the shaded camera overlay to the rounded scan-area border so no
+  brighter corners leak outside the visible reading area.
 
 ## 0.1.7 - 2026-09-06
 

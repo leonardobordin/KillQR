@@ -431,7 +431,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'KillQR stocke les scans localement et fonctionne hors ligne par défaut. Le réseau est utilisé uniquement lorsque vous recherchez des mises à jour.';
 
   @override
-  String get version => 'Version 0.1.7 (build 8)';
+  String get version => 'Version 0.1.8 (build 9)';
 
   @override
   String get createdBy => 'Créé par Leonardo Silva Bordin';
@@ -530,7 +530,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get releaseNoteZoom =>
-      'Les scans d’un seul code analysent uniquement la zone rectangulaire sélectionnée ; le contrôle de zoom compact laisse plus d’espace caméra en mode paysage large.';
+      'Le contrôle de zoom est horizontal en portrait et vertical à droite en paysage ; les scans d’un seul code analysent uniquement la zone rectangulaire sélectionnée.';
 
   @override
   String get releaseNoteModeHelp =>
@@ -538,7 +538,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get releaseNoteCameraOverlay =>
-      'L’ancien bouton flottant de plusieurs codes et l’indicateur du mode continu ont été retirés de l’aperçu de la caméra.';
+      'Le masque de la caméra suit maintenant la bordure arrondie de la zone de scan, sans coins clairs en dehors du contour.';
 
   @override
   String get releaseNoteContinuousIndicator =>

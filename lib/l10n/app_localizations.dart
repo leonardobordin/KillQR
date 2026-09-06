@@ -901,7 +901,7 @@ abstract class AppLocalizations {
   /// No description provided for @version.
   ///
   /// In en, this message translates to:
-  /// **'Version 0.1.7 (build 8)'**
+  /// **'Version 0.1.8 (build 9)'**
   String get version;
 
   /// No description provided for @createdBy.
@@ -1087,7 +1087,7 @@ abstract class AppLocalizations {
   /// No description provided for @releaseNoteZoom.
   ///
   /// In en, this message translates to:
-  /// **'Single-code scans analyze only the selected rectangular area, and the compact zoom control preserves more camera space in wide landscape layouts.'**
+  /// **'The zoom control is horizontal in portrait and vertical on the right in landscape; single-code scans analyze only the selected rectangular area.'**
   String get releaseNoteZoom;
 
   /// No description provided for @releaseNoteModeHelp.
@@ -1099,7 +1099,7 @@ abstract class AppLocalizations {
   /// No description provided for @releaseNoteCameraOverlay.
   ///
   /// In en, this message translates to:
-  /// **'Removed the old floating multiple-code switch and continuous-mode status overlay from the camera preview.'**
+  /// **'The camera overlay now follows the rounded scan-area border without bright corner gaps.'**
   String get releaseNoteCameraOverlay;
 
   /// No description provided for @releaseNoteContinuousIndicator.

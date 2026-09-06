@@ -99,6 +99,8 @@ class _ScannerPageState extends ConsumerState<ScannerPage> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final settings = ref.watch(appSettingsProvider);
+    final isLandscape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.scanTitle),
@@ -142,10 +144,13 @@ class _ScannerPageState extends ConsumerState<ScannerPage> {
                           ),
                         ),
                       Positioned(
-                        left: 12,
+                        left: isLandscape ? null : 12,
                         right: 12,
+                        top: isLandscape ? 12 : null,
                         bottom: 12,
+                        width: isLandscape ? 84 : null,
                         child: _ScannerBottomControls(
+                          vertical: isLandscape,
                           zoom: _zoom,
                           minZoom: _minZoom,
                           maxZoom: _maxZoom,
@@ -757,12 +762,14 @@ class _ScannerMenuItemData {
 
 class _ScannerBottomControls extends StatelessWidget {
   const _ScannerBottomControls({
+    required this.vertical,
     required this.zoom,
     required this.minZoom,
     required this.maxZoom,
     required this.onZoomChanged,
   });
 
+  final bool vertical;
   final double zoom;
   final double minZoom;
   final double maxZoom;
@@ -776,34 +783,77 @@ class _ScannerBottomControls extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return SafeArea(
       top: false,
+      left: false,
+      right: false,
+      bottom: !vertical,
       child: Material(
         color: Colors.black.withValues(alpha: 0.68),
         borderRadius: BorderRadius.circular(18),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(14, 4, 14, 4),
-          child: Row(
-            children: [
-              const Icon(Icons.zoom_in, color: Colors.white, size: 18),
-              const SizedBox(width: 8),
-              Text(
-                l10n.zoomValue(safeZoom.toStringAsFixed(1)),
-                style: textTheme.labelLarge?.copyWith(color: Colors.white),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Slider(
-                  value: zoomAvailable ? safeZoom : 0,
-                  min: zoomAvailable ? minZoom : 0,
-                  max: zoomAvailable ? maxZoom : 1,
-                  label: zoomAvailable
-                      ? l10n.zoomValue(safeZoom.toStringAsFixed(1))
-                      : l10n.zoom,
-                  onChanged: zoomAvailable ? onZoomChanged : null,
+        child: vertical
+            ? Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 4,
+                  vertical: 12,
+                ),
+                child: Column(
+                  children: [
+                    const Icon(Icons.zoom_in, color: Colors.white, size: 18),
+                    const SizedBox(height: 4),
+                    Expanded(
+                      child: RotatedBox(
+                        quarterTurns: 3,
+                        child: Slider(
+                          value: zoomAvailable ? safeZoom : 0,
+                          min: zoomAvailable ? minZoom : 0,
+                          max: zoomAvailable ? maxZoom : 1,
+                          label: zoomAvailable
+                              ? l10n.zoomValue(safeZoom.toStringAsFixed(1))
+                              : l10n.zoom,
+                          onChanged: zoomAvailable ? onZoomChanged : null,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        l10n.zoomValue(safeZoom.toStringAsFixed(1)),
+                        maxLines: 1,
+                        style: textTheme.labelLarge?.copyWith(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            : Padding(
+                padding: const EdgeInsets.fromLTRB(14, 4, 14, 4),
+                child: Row(
+                  children: [
+                    const Icon(Icons.zoom_in, color: Colors.white, size: 18),
+                    const SizedBox(width: 8),
+                    Text(
+                      l10n.zoomValue(safeZoom.toStringAsFixed(1)),
+                      style: textTheme.labelLarge?.copyWith(
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Slider(
+                        value: zoomAvailable ? safeZoom : 0,
+                        min: zoomAvailable ? minZoom : 0,
+                        max: zoomAvailable ? maxZoom : 1,
+                        label: zoomAvailable
+                            ? l10n.zoomValue(safeZoom.toStringAsFixed(1))
+                            : l10n.zoom,
+                        onChanged: zoomAvailable ? onZoomChanged : null,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ),
       ),
     );
   }
@@ -820,6 +870,7 @@ class _ScanAreaOverlay extends StatelessWidget {
   static const _minimumSize = 96.0;
   static const _margin = 24.0;
   static const _bottomInset = 78.0;
+  static const _landscapeControlInset = 96.0;
   static const _handleSize = 48.0;
 
   final double widthFactor;
@@ -834,11 +885,15 @@ class _ScanAreaOverlay extends StatelessWidget {
       builder: (context, constraints) {
         final size = Size(constraints.maxWidth, constraints.maxHeight);
         final shortSide = math.min(size.width, size.height);
+        final isLandscape = size.width > size.height;
         final usableHeight = math.max(
           _minimumSize + _margin * 2,
-          size.height - _bottomInset,
+          size.height - (isLandscape ? 0 : _bottomInset),
         );
-        final maxWidth = math.max(_minimumSize, size.width - _margin * 2);
+        final maxWidth = math.max(
+          _minimumSize,
+          size.width - _margin * 2 - (isLandscape ? _landscapeControlInset : 0),
+        );
         final maxHeight = math.max(_minimumSize, usableHeight - _margin * 2);
         final width = (widthFactor * shortSide).clamp(_minimumSize, maxWidth);
         final height = (heightFactor * shortSide).clamp(
@@ -915,33 +970,21 @@ class _ScanAreaPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final shade = Paint()..color = Colors.black.withValues(alpha: 0.54);
-    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, scanRect.top), shade);
-    canvas.drawRect(
-      Rect.fromLTWH(
-        0,
-        scanRect.bottom,
-        size.width,
-        size.height - scanRect.bottom,
-      ),
-      shade,
+    final scanArea = RRect.fromRectAndRadius(
+      scanRect,
+      const Radius.circular(20),
     );
-    canvas.drawRect(
-      Rect.fromLTRB(0, scanRect.top, scanRect.left, scanRect.bottom),
-      shade,
-    );
-    canvas.drawRect(
-      Rect.fromLTRB(scanRect.right, scanRect.top, size.width, scanRect.bottom),
-      shade,
-    );
+    final overlay = Path()
+      ..fillType = PathFillType.evenOdd
+      ..addRect(Offset.zero & size)
+      ..addRRect(scanArea);
+    canvas.drawPath(overlay, shade);
 
     final border = Paint()
       ..color = borderColor
       ..style = PaintingStyle.stroke
       ..strokeWidth = 3;
-    canvas.drawRRect(
-      RRect.fromRectAndRadius(scanRect, const Radius.circular(20)),
-      border,
-    );
+    canvas.drawRRect(scanArea, border);
   }
 
   @override

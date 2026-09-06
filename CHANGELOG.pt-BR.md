@@ -6,9 +6,17 @@ Todas as alterações importantes do KillQR estão documentadas aqui.
 
 ## Não lançado
 
+## 0.1.8 - 2026-09-06
+
 ### Melhorias
 
-- Nenhuma alteração pendente.
+- Tornado o controle de zoom vertical no lado direito quando o celular está em
+  modo paisagem.
+
+### Correções de bugs
+
+- Alinhada a máscara escurecida da câmera à borda arredondada da área de
+  leitura, removendo os cantos mais claros que vazavam para fora do contorno.
 
 ## 0.1.7 - 2026-09-06
 

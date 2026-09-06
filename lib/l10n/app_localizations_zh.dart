@@ -409,7 +409,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get aboutText => 'KillQR 默认将扫描结果保存在本地并离线运行。只有检查更新时才会使用网络。';
 
   @override
-  String get version => '版本 0.1.7（构建 8）';
+  String get version => '版本 0.1.8（构建 9）';
 
   @override
   String get createdBy => '作者：Leonardo Silva Bordin';
@@ -505,13 +505,13 @@ class AppLocalizationsZh extends AppLocalizations {
       '手电筒、切换相机、导入文档和扫描模式现在集中在顶部栏，窄屏设备会使用更多菜单。';
 
   @override
-  String get releaseNoteZoom => '扫描单个代码时只分析选定的矩形区域；紧凑的缩放控件可在宽屏横向布局中保留更多相机画面。';
+  String get releaseNoteZoom => '缩放控件在竖屏时为横向，在横屏时垂直显示在右侧；扫描单个代码时只分析选定的矩形区域。';
 
   @override
   String get releaseNoteModeHelp => '启用连续扫描和多代码模式时，现在会说明其工作方式，并可永久隐藏说明。';
 
   @override
-  String get releaseNoteCameraOverlay => '移除了相机预览中旧的多代码浮动开关和连续模式状态提示。';
+  String get releaseNoteCameraOverlay => '相机遮罩现在会沿着扫描区域的圆角边框显示，不再有明亮的角落溢出轮廓。';
 
   @override
   String get releaseNoteContinuousIndicator => '连续模式提示现在位于相机右下角，不会再增加顶部栏高度。';
@@ -1093,7 +1093,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get aboutText => 'KillQR 默认将扫描结果保存在本地并离线运行。只有检查更新时才会使用网络。';
 
   @override
-  String get version => '版本 0.1.7（构建 8）';
+  String get version => '版本 0.1.8（构建 9）';
 
   @override
   String get createdBy => '作者：Leonardo Silva Bordin';
@@ -1189,13 +1189,13 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
       '手电筒、切换相机、导入文档和扫描模式现在集中在顶部栏，窄屏设备会使用更多菜单。';
 
   @override
-  String get releaseNoteZoom => '扫描单个代码时只分析选定的矩形区域；紧凑的缩放控件可在宽屏横向布局中保留更多相机画面。';
+  String get releaseNoteZoom => '缩放控件在竖屏时为横向，在横屏时垂直显示在右侧；扫描单个代码时只分析选定的矩形区域。';
 
   @override
   String get releaseNoteModeHelp => '启用连续扫描和多代码模式时，现在会说明其工作方式，并可永久隐藏说明。';
 
   @override
-  String get releaseNoteCameraOverlay => '移除了相机预览中旧的多代码浮动开关和连续模式状态提示。';
+  String get releaseNoteCameraOverlay => '相机遮罩现在会沿着扫描区域的圆角边框显示，不再有明亮的角落溢出轮廓。';
 
   @override
   String get releaseNoteContinuousIndicator => '连续模式提示现在位于相机右下角，不会再增加顶部栏高度。';
