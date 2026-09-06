@@ -426,7 +426,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'O KillQR armazena leituras localmente e funciona offline por padrão. A rede é usada somente ao verificar atualizações.';
 
   @override
-  String get version => 'Versão 0.1.8 (build 9)';
+  String get version => 'Versão 0.1.9 (build 10)';
 
   @override
   String get createdBy => 'Feito por Leonardo Silva Bordin';
@@ -517,7 +517,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get releaseNoteScanArea =>
-      'Agora é possível redimensionar livremente a área de leitura pelo canto inferior direito, ajustando largura e altura de forma independente.';
+      'A alça de redimensionamento da área de leitura agora acompanha todo o movimento do dedo, sem exigir arrastes repetidos.';
 
   @override
   String get releaseNoteTopControls =>
@@ -1115,7 +1115,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'O KillQR armazena leituras localmente e funciona offline por padrão. A rede é usada somente ao verificar atualizações.';
 
   @override
-  String get version => 'Versão 0.1.8 (build 9)';
+  String get version => 'Versão 0.1.9 (build 10)';
 
   @override
   String get createdBy => 'Feito por Leonardo Silva Bordin';
@@ -1206,7 +1206,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get releaseNoteScanArea =>
-      'Agora é possível redimensionar livremente a área de leitura pelo canto inferior direito, ajustando largura e altura de forma independente.';
+      'A alça de redimensionamento da área de leitura agora acompanha todo o movimento do dedo, sem exigir arrastes repetidos.';
 
   @override
   String get releaseNoteTopControls =>

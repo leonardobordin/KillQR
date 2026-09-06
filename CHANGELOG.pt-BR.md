@@ -6,6 +6,13 @@ Todas as alterações importantes do KillQR estão documentadas aqui.
 
 ## Não lançado
 
+## 0.1.9 - 2026-09-06
+
+### Correções de bugs
+
+- Corrigido o redimensionamento da área de leitura para que a alça acompanhe
+  todo o movimento do dedo, sem exigir arrastes repetidos.
+
 ## 0.1.8 - 2026-09-06
 
 ### Melhorias

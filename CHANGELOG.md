@@ -6,6 +6,13 @@ All notable changes to KillQR are documented here.
 
 ## Unreleased
 
+## 0.1.9 - 2026-09-06
+
+### Bug fixes
+
+- Fixed scan-area resizing so the handle follows the finger's full movement
+  without requiring repeated drags.
+
 ## 0.1.8 - 2026-09-06
 
 ### Improvements

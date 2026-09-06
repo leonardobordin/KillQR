@@ -409,7 +409,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get aboutText => 'KillQR 默认将扫描结果保存在本地并离线运行。只有检查更新时才会使用网络。';
 
   @override
-  String get version => '版本 0.1.8（构建 9）';
+  String get version => '版本 0.1.9（构建 10）';
 
   @override
   String get createdBy => '作者：Leonardo Silva Bordin';
@@ -498,7 +498,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get releaseNotesIntro => '此版本的更改：';
 
   @override
-  String get releaseNoteScanArea => '现在可以从右下角自由调整相机扫描区域，并独立设置宽度和高度。';
+  String get releaseNoteScanArea => '现在扫描区域的调整会跟随手指的完整移动，无需反复拖动。';
 
   @override
   String get releaseNoteTopControls =>
@@ -1093,7 +1093,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get aboutText => 'KillQR 默认将扫描结果保存在本地并离线运行。只有检查更新时才会使用网络。';
 
   @override
-  String get version => '版本 0.1.8（构建 9）';
+  String get version => '版本 0.1.9（构建 10）';
 
   @override
   String get createdBy => '作者：Leonardo Silva Bordin';
@@ -1182,7 +1182,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get releaseNotesIntro => '此版本的更改：';
 
   @override
-  String get releaseNoteScanArea => '现在可以从右下角自由调整相机扫描区域，并独立设置宽度和高度。';
+  String get releaseNoteScanArea => '现在扫描区域的调整会跟随手指的完整移动，无需反复拖动。';
 
   @override
   String get releaseNoteTopControls =>

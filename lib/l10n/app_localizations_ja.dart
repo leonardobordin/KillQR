@@ -411,7 +411,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'KillQRはスキャン結果をローカルに保存し、初期設定ではオフラインで動作します。ネットワークは更新を確認するときだけ使用します。';
 
   @override
-  String get version => 'バージョン 0.1.8（ビルド9）';
+  String get version => 'バージョン 0.1.9（ビルド10）';
 
   @override
   String get createdBy => '作成者: Leonardo Silva Bordin';
@@ -500,7 +500,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get releaseNotesIntro => 'このバージョンの変更点:';
 
   @override
-  String get releaseNoteScanArea => 'カメラのスキャン範囲を右下の角から自由に変更でき、幅と高さを個別に調整できます。';
+  String get releaseNoteScanArea =>
+      'スキャン範囲のサイズ変更が指の動き全体に追従し、何度もドラッグする必要がなくなりました。';
 
   @override
   String get releaseNoteTopControls =>

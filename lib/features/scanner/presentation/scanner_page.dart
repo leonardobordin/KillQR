@@ -859,7 +859,7 @@ class _ScannerBottomControls extends StatelessWidget {
   }
 }
 
-class _ScanAreaOverlay extends StatelessWidget {
+class _ScanAreaOverlay extends StatefulWidget {
   const _ScanAreaOverlay({
     required this.widthFactor,
     required this.heightFactor,
@@ -867,16 +867,32 @@ class _ScanAreaOverlay extends StatelessWidget {
     required this.onChanged,
   });
 
-  static const _minimumSize = 96.0;
-  static const _margin = 24.0;
-  static const _bottomInset = 78.0;
-  static const _landscapeControlInset = 96.0;
-  static const _handleSize = 48.0;
-
   final double widthFactor;
   final double heightFactor;
   final Color borderColor;
   final void Function(double widthFactor, double heightFactor) onChanged;
+
+  @override
+  State<_ScanAreaOverlay> createState() => _ScanAreaOverlayState();
+}
+
+class _ScanAreaOverlayState extends State<_ScanAreaOverlay> {
+  Offset? _dragStartPosition;
+  double? _dragStartWidth;
+  double? _dragStartHeight;
+
+  static const _minimumSize = 96.0;
+  static const _margin = 24.0;
+  static const _bottomInset = 78.0;
+  static const _landscapeControlInset = 96.0;
+  static const _handleHitSize = 64.0;
+  static const _handleVisualSize = 48.0;
+
+  void _resetDrag() {
+    _dragStartPosition = null;
+    _dragStartWidth = null;
+    _dragStartHeight = null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -895,8 +911,11 @@ class _ScanAreaOverlay extends StatelessWidget {
           size.width - _margin * 2 - (isLandscape ? _landscapeControlInset : 0),
         );
         final maxHeight = math.max(_minimumSize, usableHeight - _margin * 2);
-        final width = (widthFactor * shortSide).clamp(_minimumSize, maxWidth);
-        final height = (heightFactor * shortSide).clamp(
+        final width = (widget.widthFactor * shortSide).clamp(
+          _minimumSize,
+          maxWidth,
+        );
+        final height = (widget.heightFactor * shortSide).clamp(
           _minimumSize,
           maxHeight,
         );
@@ -913,15 +932,15 @@ class _ScanAreaOverlay extends StatelessWidget {
               child: CustomPaint(
                 painter: _ScanAreaPainter(
                   scanRect: scanRect,
-                  borderColor: borderColor,
+                  borderColor: widget.borderColor,
                 ),
               ),
             ),
             Positioned(
-              left: scanRect.right - _handleSize / 2,
-              top: scanRect.bottom - _handleSize / 2,
-              width: _handleSize,
-              height: _handleSize,
+              left: scanRect.right - _handleHitSize / 2,
+              top: scanRect.bottom - _handleHitSize / 2,
+              width: _handleHitSize,
+              height: _handleHitSize,
               child: Semantics(
                 label: l10n.resizeScanArea,
                 button: true,
@@ -929,25 +948,54 @@ class _ScanAreaOverlay extends StatelessWidget {
                   message: l10n.resizeScanArea,
                   child: GestureDetector(
                     behavior: HitTestBehavior.opaque,
-                    onPanUpdate: (details) {
-                      final nextWidth = (scanRect.width + details.delta.dx)
-                          .clamp(_minimumSize, maxWidth);
-                      final nextHeight = (scanRect.height + details.delta.dy)
-                          .clamp(_minimumSize, maxHeight);
-                      onChanged(nextWidth / shortSide, nextHeight / shortSide);
+                    onPanStart: (details) {
+                      _dragStartPosition = details.globalPosition;
+                      _dragStartWidth = scanRect.width;
+                      _dragStartHeight = scanRect.height;
                     },
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: borderColor,
-                        shape: BoxShape.circle,
-                        boxShadow: const [
-                          BoxShadow(color: Colors.black54, blurRadius: 4),
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.open_in_full,
-                        color: Colors.white,
-                        size: 22,
+                    onPanUpdate: (details) {
+                      final startPosition = _dragStartPosition;
+                      final startWidth = _dragStartWidth;
+                      final startHeight = _dragStartHeight;
+                      if (startPosition == null ||
+                          startWidth == null ||
+                          startHeight == null) {
+                        return;
+                      }
+
+                      final totalDelta = details.globalPosition - startPosition;
+                      final nextWidth = (startWidth + totalDelta.dx).clamp(
+                        _minimumSize,
+                        maxWidth,
+                      );
+                      final nextHeight = (startHeight + totalDelta.dy).clamp(
+                        _minimumSize,
+                        maxHeight,
+                      );
+                      widget.onChanged(
+                        nextWidth / shortSide,
+                        nextHeight / shortSide,
+                      );
+                    },
+                    onPanEnd: (_) => _resetDrag(),
+                    onPanCancel: _resetDrag,
+                    child: Center(
+                      child: SizedBox.square(
+                        dimension: _handleVisualSize,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: widget.borderColor,
+                            shape: BoxShape.circle,
+                            boxShadow: const [
+                              BoxShadow(color: Colors.black54, blurRadius: 4),
+                            ],
+                          ),
+                          child: const Icon(
+                            Icons.open_in_full,
+                            color: Colors.white,
+                            size: 22,
+                          ),
+                        ),
                       ),
                     ),
                   ),

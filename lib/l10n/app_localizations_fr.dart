@@ -431,7 +431,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'KillQR stocke les scans localement et fonctionne hors ligne par défaut. Le réseau est utilisé uniquement lorsque vous recherchez des mises à jour.';
 
   @override
-  String get version => 'Version 0.1.8 (build 9)';
+  String get version => 'Version 0.1.9 (build 10)';
 
   @override
   String get createdBy => 'Créé par Leonardo Silva Bordin';
@@ -522,7 +522,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get releaseNoteScanArea =>
-      'La zone de scan de la caméra peut maintenant être redimensionnée librement depuis le coin inférieur droit, avec une largeur et une hauteur indépendantes.';
+      'Le redimensionnement de la zone de scan suit désormais tout le mouvement du doigt, sans nécessiter plusieurs glissements.';
 
   @override
   String get releaseNoteTopControls =>

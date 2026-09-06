@@ -901,7 +901,7 @@ abstract class AppLocalizations {
   /// No description provided for @version.
   ///
   /// In en, this message translates to:
-  /// **'Version 0.1.8 (build 9)'**
+  /// **'Version 0.1.9 (build 10)'**
   String get version;
 
   /// No description provided for @createdBy.
@@ -1075,7 +1075,7 @@ abstract class AppLocalizations {
   /// No description provided for @releaseNoteScanArea.
   ///
   /// In en, this message translates to:
-  /// **'The camera scan area can now be freely resized from its bottom-right corner, with independent width and height.'**
+  /// **'The scan-area resize handle now follows the full finger movement, without requiring repeated drags.'**
   String get releaseNoteScanArea;
 
   /// No description provided for @releaseNoteTopControls.

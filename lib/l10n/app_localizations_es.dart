@@ -429,7 +429,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'KillQR almacena los escaneos localmente y funciona sin conexión de forma predeterminada. La red solo se utiliza cuando buscas actualizaciones.';
 
   @override
-  String get version => 'Versión 0.1.8 (compilación 9)';
+  String get version => 'Versión 0.1.9 (compilación 10)';
 
   @override
   String get createdBy => 'Creado por Leonardo Silva Bordin';
@@ -520,7 +520,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get releaseNoteScanArea =>
-      'Ahora el área de escaneo de la cámara se puede redimensionar libremente desde la esquina inferior derecha, ajustando el ancho y el alto de forma independiente.';
+      'El redimensionamiento del área de escaneo ahora sigue todo el movimiento del dedo, sin necesidad de arrastrar varias veces.';
 
   @override
   String get releaseNoteTopControls =>
