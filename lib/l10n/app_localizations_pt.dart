@@ -344,6 +344,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get version => 'Versão 0.1.5 (build 6)';
 
   @override
+  String get createdBy => 'Feito por Leonardo Silva Bordin';
+
+  @override
   String get license => 'Licença Apache-2.0';
 
   @override
@@ -923,6 +926,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get version => 'Versão 0.1.5 (build 6)';
+
+  @override
+  String get createdBy => 'Feito por Leonardo Silva Bordin';
 
   @override
   String get license => 'Licença Apache-2.0';

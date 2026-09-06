@@ -215,14 +215,14 @@ class SettingsPage extends ConsumerWidget {
               leading: const Icon(Icons.qr_code_2),
               title: const Text('KillQR'),
               subtitle: Text(
-                '${l10n.version}\n${l10n.license}\n\n${l10n.aboutText}',
+                '${l10n.version}\n${l10n.createdBy}\n${l10n.license}\n\n${l10n.aboutText}',
               ),
               isThreeLine: true,
               onTap: () => showAboutDialog(
                 context: context,
                 applicationName: 'KillQR',
                 applicationVersion: l10n.version,
-                applicationLegalese: l10n.license,
+                applicationLegalese: '${l10n.createdBy}\n${l10n.license}',
               ),
             ),
           ),

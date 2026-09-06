@@ -342,6 +342,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get version => 'Version 0.1.5 (build 6)';
 
   @override
+  String get createdBy => 'Created by Leonardo Silva Bordin';
+
+  @override
   String get license => 'Apache-2.0 license';
 
   @override

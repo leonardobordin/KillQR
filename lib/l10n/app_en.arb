@@ -107,6 +107,7 @@
   "privacy": "Privacy",
   "aboutText": "KillQR stores scans locally and works offline by default. Network access is used only when you check for updates.",
   "version": "Version 0.1.5 (build 6)",
+  "createdBy": "Created by Leonardo Silva Bordin",
   "license": "Apache-2.0 license",
   "productSearch": "Search product",
   "parserWarning": "Some fields could not be interpreted safely.",

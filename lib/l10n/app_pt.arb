@@ -107,6 +107,7 @@
   "privacy": "Privacidade",
   "aboutText": "O KillQR armazena leituras localmente e funciona offline por padrão. A rede é usada somente ao verificar atualizações.",
   "version": "Versão 0.1.5 (build 6)",
+  "createdBy": "Feito por Leonardo Silva Bordin",
   "license": "Licença Apache-2.0",
   "productSearch": "Pesquisar produto",
   "parserWarning": "Alguns campos não puderam ser interpretados com segurança.",

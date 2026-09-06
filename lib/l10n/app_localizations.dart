@@ -741,6 +741,12 @@ abstract class AppLocalizations {
   /// **'Version 0.1.5 (build 6)'**
   String get version;
 
+  /// No description provided for @createdBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Created by Leonardo Silva Bordin'**
+  String get createdBy;
+
   /// No description provided for @license.
   ///
   /// In en, this message translates to:

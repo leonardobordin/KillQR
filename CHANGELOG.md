@@ -10,6 +10,10 @@ All notable changes to KillQR are documented here.
 - Added “Remind me later” and “Don't remind me again” update preferences.
 - Added English as the default README language and a linked Brazilian Portuguese
   README.
+- Added the creator attribution “Leonardo Silva Bordin” to the in-app About
+  section and project documentation.
+- Reorganized both READMEs with project branding, feature groups, download,
+  build, privacy, release and ownership sections.
 - Added GitHub Actions workflows for validation and APK release publication.
 
 ### Correções de bugs
