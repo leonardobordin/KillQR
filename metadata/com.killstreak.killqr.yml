@@ -1,0 +1,18 @@
+# Draft F-Droid metadata. A canonical public repository URL and release commit
+# must be supplied before this file is submitted to F-Droid. No publication is
+# performed by the project build.
+AutoName: KillQR
+Categories:
+  - Utilities
+License: Apache-2.0
+Summary: Offline QR and barcode scanner
+Description: |
+  KillQR scans and creates QR codes and barcodes without an account, telemetry,
+  advertisements or a runtime network dependency. Results can be interpreted,
+  saved locally, tagged, searched and exported by the user.
+  .
+  The app asks for camera access only while scanning and confirms every action
+  that opens another application.
+UpdateCheckMode: None
+# RepoType, Repo and Builds are intentionally omitted until a canonical source
+# repository and immutable release commit exist.
