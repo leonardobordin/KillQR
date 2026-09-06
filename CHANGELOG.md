@@ -4,6 +4,23 @@
 
 All notable changes to KillQR are documented here.
 
+## Unreleased
+
+### Improvements
+
+- Made the camera scan area adjustable; only the selected central region is
+  analyzed during single-code scanning.
+- Moved flashlight, camera switching, document import and scanner modes to the
+  top action bar, with an adaptive overflow menu for narrow screens.
+- Added bottom controls for scan-area size and camera zoom.
+- Added first-use explanations for continuous scanning and multiple-code
+  scanning, with a persistent “Don't show this again” choice.
+
+### Bug fixes
+
+- Removed the old multiple-code switch and continuous-mode status overlay from
+  the camera preview.
+
 ## 0.1.5 - 2026-09-05
 
 ### Improvements

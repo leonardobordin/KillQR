@@ -267,6 +267,114 @@ abstract class AppLocalizations {
   /// **'Continuous scan'**
   String get continuousScan;
 
+  /// No description provided for @continuousScanDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep scanning without opening each result.'**
+  String get continuousScanDescription;
+
+  /// No description provided for @importDocumentDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Read a code from an image, PDF or Office document.'**
+  String get importDocumentDescription;
+
+  /// No description provided for @continuousModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Continuous scan'**
+  String get continuousModeTitle;
+
+  /// No description provided for @continuousModeExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'When enabled, KillQR keeps the camera open and records each new code without opening a result page. The delay between repeated reads is controlled in Settings.'**
+  String get continuousModeExplanation;
+
+  /// No description provided for @multipleScanDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Find several codes in one camera capture.'**
+  String get multipleScanDescription;
+
+  /// No description provided for @multipleModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Multiple-code scanning'**
+  String get multipleModeTitle;
+
+  /// No description provided for @multipleModeExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'When enabled, KillQR analyzes the full camera frame and can return several codes from one capture. The central scan box is hidden because the whole frame is used.'**
+  String get multipleModeExplanation;
+
+  /// No description provided for @doNotShowAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Don’t show this again'**
+  String get doNotShowAgain;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @flashlight.
+  ///
+  /// In en, this message translates to:
+  /// **'Flashlight'**
+  String get flashlight;
+
+  /// No description provided for @switchCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch camera'**
+  String get switchCamera;
+
+  /// No description provided for @moreScannerActions.
+  ///
+  /// In en, this message translates to:
+  /// **'More scanner actions'**
+  String get moreScannerActions;
+
+  /// No description provided for @flashUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'The flashlight is not available on this camera.'**
+  String get flashUnavailable;
+
+  /// No description provided for @scanAreaSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan area'**
+  String get scanAreaSize;
+
+  /// No description provided for @scanAreaValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan area: {percent}%'**
+  String scanAreaValue(int percent);
+
+  /// No description provided for @fullCameraFrame.
+  ///
+  /// In en, this message translates to:
+  /// **'Full camera frame'**
+  String get fullCameraFrame;
+
+  /// No description provided for @zoom.
+  ///
+  /// In en, this message translates to:
+  /// **'Zoom'**
+  String get zoom;
+
+  /// No description provided for @zoomValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Zoom: {value}x'**
+  String zoomValue(String value);
+
   /// No description provided for @privateMode.
   ///
   /// In en, this message translates to:

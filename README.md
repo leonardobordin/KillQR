@@ -63,6 +63,7 @@ document support, local history and clear control over what leaves the device.
 
 - Scan QR Codes and barcodes with the camera or from selected images.
 - Read multiple codes in one capture and use continuous scanning sessions.
+- Resize the central scan area and adjust camera zoom from the scanner screen.
 - Import PDFs and modern Office documents, analyzing rendered pages or embedded
   images where supported.
 - Parse URLs, phone numbers, SMS, e-mail, Wi-Fi, contacts, events, locations
@@ -89,6 +90,10 @@ document support, local history and clear control over what leaves the device.
 - System, light, dark and AMOLED themes.
 - English and Brazilian Portuguese translations.
 - Quick Settings tile named **Scan with KillQR**.
+- Flashlight, camera switching, document import and scan modes are available in
+  the top action bar, with an overflow menu on narrow screens.
+- First-use explanations clarify continuous and multiple-code scanning, with a
+  persistent option to stop showing them.
 - Release notes shown once after an app update.
 - Optional GitHub release checks with manual checking, **Remind me later** and
   **Don't remind me again** controls.

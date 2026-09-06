@@ -4,6 +4,24 @@
 
 Todas as alterações importantes do KillQR estão documentadas aqui.
 
+## Não lançado
+
+### Melhorias
+
+- Tornada ajustável a área de leitura da câmera; somente a região central
+  selecionada é analisada na leitura de um único código.
+- Movidos a lanterna, a troca de câmera, a importação de documentos e os modos
+  do scanner para a barra superior, com menu adaptativo em telas estreitas.
+- Adicionados controles inferiores para o tamanho da área de leitura e o zoom
+  da câmera.
+- Adicionadas explicações na primeira ativação da leitura contínua e da leitura
+  de vários códigos, com a opção persistente “Não exibir novamente”.
+
+### Correções de bugs
+
+- Removidos o antigo botão de vários códigos e o indicador do modo contínuo
+  sobre a prévia da câmera.
+
 ## 0.1.5 - 2026-09-05
 
 ### Melhorias

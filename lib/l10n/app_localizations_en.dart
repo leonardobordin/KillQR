@@ -100,6 +100,70 @@ class AppLocalizationsEn extends AppLocalizations {
   String get continuousScan => 'Continuous scan';
 
   @override
+  String get continuousScanDescription =>
+      'Keep scanning without opening each result.';
+
+  @override
+  String get importDocumentDescription =>
+      'Read a code from an image, PDF or Office document.';
+
+  @override
+  String get continuousModeTitle => 'Continuous scan';
+
+  @override
+  String get continuousModeExplanation =>
+      'When enabled, KillQR keeps the camera open and records each new code without opening a result page. The delay between repeated reads is controlled in Settings.';
+
+  @override
+  String get multipleScanDescription =>
+      'Find several codes in one camera capture.';
+
+  @override
+  String get multipleModeTitle => 'Multiple-code scanning';
+
+  @override
+  String get multipleModeExplanation =>
+      'When enabled, KillQR analyzes the full camera frame and can return several codes from one capture. The central scan box is hidden because the whole frame is used.';
+
+  @override
+  String get doNotShowAgain => 'Don’t show this again';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get flashlight => 'Flashlight';
+
+  @override
+  String get switchCamera => 'Switch camera';
+
+  @override
+  String get moreScannerActions => 'More scanner actions';
+
+  @override
+  String get flashUnavailable =>
+      'The flashlight is not available on this camera.';
+
+  @override
+  String get scanAreaSize => 'Scan area';
+
+  @override
+  String scanAreaValue(int percent) {
+    return 'Scan area: $percent%';
+  }
+
+  @override
+  String get fullCameraFrame => 'Full camera frame';
+
+  @override
+  String get zoom => 'Zoom';
+
+  @override
+  String zoomValue(String value) {
+    return 'Zoom: ${value}x';
+  }
+
+  @override
   String get privateMode => 'Private mode';
 
   @override

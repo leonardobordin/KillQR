@@ -64,6 +64,7 @@ o que sai do dispositivo.
 
 - Leia QR Codes e códigos de barras pela câmera ou por imagens selecionadas.
 - Leia vários códigos em uma captura e use sessões de leitura contínua.
+- Redimensione a área central de leitura e ajuste o zoom da câmera na tela do scanner.
 - Importe PDFs e documentos Office modernos, analisando páginas renderizadas ou
   imagens incorporadas quando houver suporte.
 - Interprete localmente URLs, telefones, SMS, e-mails, Wi-Fi, contatos,
@@ -90,6 +91,10 @@ o que sai do dispositivo.
 - Temas Sistema, Claro, Escuro e AMOLED.
 - Traduções para inglês e português do Brasil.
 - Tile de Configurações rápidas chamado **Escanear com KillQR**.
+- Lanterna, troca de câmera, importação de documentos e modos de leitura ficam
+  na barra superior, com menu de opções em telas estreitas.
+- Explicações na primeira ativação esclarecem a leitura contínua e de vários
+  códigos, com opção persistente para não exibi-las novamente.
 - Novidades exibidas uma vez depois de uma atualização.
 - Verificação opcional de releases do GitHub, com verificação manual,
   **Lembrar mais tarde** e **Não lembrar mais**.

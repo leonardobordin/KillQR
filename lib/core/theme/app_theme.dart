@@ -23,6 +23,8 @@ class AppSettingsController extends ChangeNotifier {
   bool saveAutomatically = true;
   bool privateMode = false;
   bool continuousMode = false;
+  bool continuousModeHelpDismissed = false;
+  bool multipleScanHelpDismissed = false;
   Duration debounce = const Duration(milliseconds: 1200);
   bool initialTorch = false;
   bool automaticUpdateChecks = true;
@@ -62,6 +64,11 @@ class AppSettingsController extends ChangeNotifier {
         await _preferenceStore.getBool('save_automatically') ?? true;
     privateMode = await _preferenceStore.getBool('private_mode') ?? false;
     continuousMode = await _preferenceStore.getBool('continuous_mode') ?? false;
+    continuousModeHelpDismissed =
+        await _preferenceStore.getBool('continuous_mode_help_dismissed') ??
+        false;
+    multipleScanHelpDismissed =
+        await _preferenceStore.getBool('multiple_scan_help_dismissed') ?? false;
     initialTorch = await _preferenceStore.getBool('initial_torch') ?? false;
     automaticUpdateChecks =
         await _preferenceStore.getBool('automatic_update_checks') ?? true;
@@ -143,6 +150,18 @@ class AppSettingsController extends ChangeNotifier {
     continuousMode = value;
     notifyListeners();
     await _preferenceStore.setBool('continuous_mode', value);
+  }
+
+  Future<void> setContinuousModeHelpDismissed(bool value) async {
+    continuousModeHelpDismissed = value;
+    notifyListeners();
+    await _preferenceStore.setBool('continuous_mode_help_dismissed', value);
+  }
+
+  Future<void> setMultipleScanHelpDismissed(bool value) async {
+    multipleScanHelpDismissed = value;
+    notifyListeners();
+    await _preferenceStore.setBool('multiple_scan_help_dismissed', value);
   }
 
   Future<void> setInitialTorch(bool value) async {

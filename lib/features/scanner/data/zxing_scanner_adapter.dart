@@ -44,10 +44,16 @@ class ZxingScannerAdapter {
     ValueChanged<List<BarcodeScanResult>>? onMultipleResults,
     ValueChanged<Object>? onError,
     required bool multiple,
+    required zxing.CameraLensDirection lensDirection,
+    required void Function(zxing.CameraController?, Exception?)
+    onControllerCreated,
+    double cropPercent = 0.5,
+    Color borderColor = Colors.white,
   }) {
     return zxing.ReaderWidget(
       key: const ValueKey('killqr-reader'),
       isMultiScan: multiple,
+      lensDirection: lensDirection,
       codeFormat: zxing.Format.any,
       tryHarder: true,
       tryRotate: true,
@@ -65,18 +71,28 @@ class ZxingScannerAdapter {
             .toList(growable: false);
         if (results.isNotEmpty) onMultipleResults?.call(results);
       },
-      onControllerCreated: (_, error) {
+      onControllerCreated: (controller, error) {
+        onControllerCreated(controller, error);
         if (error != null) onError?.call(error);
       },
       showScannerOverlay: true,
       // Gallery/document selection is handled by ScannerPage so that the
       // user gets feedback when a file is cancelled or contains no code.
       showGallery: false,
-      showToggleCamera: true,
-      showFlashlight: true,
+      // Flashlight and camera switching are controlled by ScannerPage so the
+      // actions can stay in the app bar on every screen size.
+      showToggleCamera: false,
+      showFlashlight: false,
       allowPinchZoom: true,
-      actionButtonsBackgroundColor: Colors.black54,
-      scannerOverlay: _ScannerOverlayShape(),
+      cropPercent: cropPercent,
+      scannerOverlay: zxing.ScannerOverlayBorder(
+        cutOutSize: cropPercent,
+        borderColor: borderColor,
+        borderWidth: 3,
+        borderLength: 28,
+        borderRadius: 20,
+        overlayColor: Colors.black45,
+      ),
     );
   }
 
@@ -168,39 +184,4 @@ class ZxingScannerAdapter {
       position: code.position,
     );
   }
-}
-
-class _ScannerOverlayShape extends ShapeBorder {
-  @override
-  EdgeInsetsGeometry get dimensions => EdgeInsets.zero;
-
-  @override
-  Path getInnerPath(Rect rect, {TextDirection? textDirection}) => Path();
-
-  @override
-  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    final width = rect.width * 0.72;
-    final height = rect.height * 0.36;
-    final left = rect.center.dx - width / 2;
-    final top = rect.center.dy - height / 2;
-    return Path()..addRRect(
-      RRect.fromRectAndRadius(
-        Rect.fromLTWH(left, top, width, height),
-        const Radius.circular(24),
-      ),
-    );
-  }
-
-  @override
-  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {
-    final path = getOuterPath(rect, textDirection: textDirection);
-    final paint = Paint()
-      ..color = Colors.white
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 2.5;
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  ShapeBorder scale(double t) => this;
 }

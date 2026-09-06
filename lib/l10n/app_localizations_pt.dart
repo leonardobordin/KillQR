@@ -101,6 +101,69 @@ class AppLocalizationsPt extends AppLocalizations {
   String get continuousScan => 'Leitura contínua';
 
   @override
+  String get continuousScanDescription =>
+      'Continue lendo sem abrir cada resultado.';
+
+  @override
+  String get importDocumentDescription =>
+      'Leia um código de uma imagem, PDF ou documento Office.';
+
+  @override
+  String get continuousModeTitle => 'Leitura contínua';
+
+  @override
+  String get continuousModeExplanation =>
+      'Quando ativado, o KillQR mantém a câmera aberta e registra cada código novo sem abrir a tela de resultado. O intervalo entre leituras repetidas é controlado nas Configurações.';
+
+  @override
+  String get multipleScanDescription =>
+      'Encontre vários códigos em uma captura da câmera.';
+
+  @override
+  String get multipleModeTitle => 'Leitura de vários códigos';
+
+  @override
+  String get multipleModeExplanation =>
+      'Quando ativado, o KillQR analisa todo o quadro da câmera e pode retornar vários códigos em uma captura. A caixa central fica oculta porque todo o quadro é usado.';
+
+  @override
+  String get doNotShowAgain => 'Não exibir novamente';
+
+  @override
+  String get close => 'Fechar';
+
+  @override
+  String get flashlight => 'Lanterna';
+
+  @override
+  String get switchCamera => 'Inverter câmera';
+
+  @override
+  String get moreScannerActions => 'Mais ações do scanner';
+
+  @override
+  String get flashUnavailable => 'A lanterna não está disponível nesta câmera.';
+
+  @override
+  String get scanAreaSize => 'Área de leitura';
+
+  @override
+  String scanAreaValue(int percent) {
+    return 'Área de leitura: $percent%';
+  }
+
+  @override
+  String get fullCameraFrame => 'Todo o quadro da câmera';
+
+  @override
+  String get zoom => 'Zoom';
+
+  @override
+  String zoomValue(String value) {
+    return 'Zoom: ${value}x';
+  }
+
+  @override
   String get privateMode => 'Modo privado';
 
   @override
@@ -683,6 +746,69 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get continuousScan => 'Leitura contínua';
+
+  @override
+  String get continuousScanDescription =>
+      'Continue lendo sem abrir cada resultado.';
+
+  @override
+  String get importDocumentDescription =>
+      'Leia um código de uma imagem, PDF ou documento Office.';
+
+  @override
+  String get continuousModeTitle => 'Leitura contínua';
+
+  @override
+  String get continuousModeExplanation =>
+      'Quando ativado, o KillQR mantém a câmera aberta e registra cada código novo sem abrir a tela de resultado. O intervalo entre leituras repetidas é controlado nas Configurações.';
+
+  @override
+  String get multipleScanDescription =>
+      'Encontre vários códigos em uma captura da câmera.';
+
+  @override
+  String get multipleModeTitle => 'Leitura de vários códigos';
+
+  @override
+  String get multipleModeExplanation =>
+      'Quando ativado, o KillQR analisa todo o quadro da câmera e pode retornar vários códigos em uma captura. A caixa central fica oculta porque todo o quadro é usado.';
+
+  @override
+  String get doNotShowAgain => 'Não exibir novamente';
+
+  @override
+  String get close => 'Fechar';
+
+  @override
+  String get flashlight => 'Lanterna';
+
+  @override
+  String get switchCamera => 'Inverter câmera';
+
+  @override
+  String get moreScannerActions => 'Mais ações do scanner';
+
+  @override
+  String get flashUnavailable => 'A lanterna não está disponível nesta câmera.';
+
+  @override
+  String get scanAreaSize => 'Área de leitura';
+
+  @override
+  String scanAreaValue(int percent) {
+    return 'Área de leitura: $percent%';
+  }
+
+  @override
+  String get fullCameraFrame => 'Todo o quadro da câmera';
+
+  @override
+  String get zoom => 'Zoom';
+
+  @override
+  String zoomValue(String value) {
+    return 'Zoom: ${value}x';
+  }
 
   @override
   String get privateMode => 'Modo privado';
