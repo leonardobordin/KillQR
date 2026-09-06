@@ -11,8 +11,7 @@ void main() {
       'assets': [
         {
           'name': 'KillQR-0.2.0.apk',
-          'browser_download_url':
-              'https://github.com/example/killqr/releases/download/v0.2.0/KillQR-0.2.0.apk',
+          'browser_download_url': 'https://github.com/example/killqr/releases/download/v0.2.0/KillQR-0.2.0.apk',
         },
       ],
     });
@@ -22,20 +21,14 @@ void main() {
     expect(release.apkUrl?.path, contains('KillQR-0.2.0.apk'));
   });
 
-  test('compares semantic release versions independently from build numbers', () {
-    expect(
-      GitHubReleaseService.isVersionNewer('v0.2.0', '0.1.5+6'),
-      isTrue,
-    );
-    expect(
-      GitHubReleaseService.isVersionNewer('0.1.5', '0.1.5+6'),
-      isFalse,
-    );
-    expect(
-      GitHubReleaseService.isVersionNewer('0.1.4', '0.1.5'),
-      isFalse,
-    );
-  });
+  test(
+    'compares semantic release versions independently from build numbers',
+    () {
+      expect(GitHubReleaseService.isVersionNewer('v0.2.0', '0.1.5+6'), isTrue);
+      expect(GitHubReleaseService.isVersionNewer('0.1.5', '0.1.5+6'), isFalse);
+      expect(GitHubReleaseService.isVersionNewer('0.1.4', '0.1.5'), isFalse);
+    },
+  );
 
   test('rejects a release that points outside HTTPS', () {
     expect(
