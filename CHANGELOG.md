@@ -1,10 +1,12 @@
 # Changelog
 
+[English](CHANGELOG.md) · [Português (Brasil)](CHANGELOG.pt-BR.md)
+
 All notable changes to KillQR are documented here.
 
 ## 0.1.5 - 2026-09-05
 
-### Melhorias
+### Improvements
 
 - Added opt-in automatic and manual GitHub release checks in Settings.
 - Added “Remind me later” and “Don't remind me again” update preferences.
@@ -16,38 +18,38 @@ All notable changes to KillQR are documented here.
   build, privacy, release and ownership sections.
 - Added GitHub Actions workflows for validation and APK release publication.
 
-### Correções de bugs
+### Bug fixes
 
 - Update checks now respect the user's disabled and snoozed preferences.
 
 ## 0.1.4 - 2026-09-05
 
-### Melhorias
+### Improvements
 
 - Replaced the Quick Settings tile artwork with a recognizable QR Code matrix.
 - Renamed the tile to `Scan with KillQR` (Portuguese: `Escanear com KillQR`).
 
-### Correções de bugs
+### Bug fixes
 
 - Corrected the tile label and icon shown by Android after the tile is added to
   the Quick Settings panel.
 
 ## 0.1.3 - 2026-09-05
 
-### Melhorias
+### Improvements
 
 - Added an `Open KillQR` Android Quick Settings tile, available from the
   system's tile editor.
 - Bumped the release to `0.1.3+4` with categorized update notes.
 
-### Correções de bugs
+### Bug fixes
 
 - Fixed the multiple-code switch so its active state follows the configured
   accent color.
 
 ## 0.1.2 - 2026-09-05
 
-### Melhorias
+### Improvements
 
 - Reorganized the in-app release notes into separate `Improvements` and `Bug
   fixes` sections.
@@ -58,25 +60,31 @@ All notable changes to KillQR are documented here.
 - Bumped the release to `0.1.2+3` with update-specific notes shown once on the
   first launch after installation.
 
-### Correções de bugs
+### Bug fixes
 
 - Fixed document imports being routed through continuous-mode handling when
   continuous scanning was enabled.
 
 ## 0.1.1 - 2026-09-05
 
+### Improvements
+
 - Moved the active continuous-mode indicator into the lower-right corner of
-  the camera area, leaving the header height unchanged and the flash/front-
-  camera controls unobstructed.
-- Decoupled image, PDF and modern Office imports from continuous mode. Imported
-  results now open the normal result flow and are stored with the `Imported`
-  source, even when continuous scanning is enabled.
+  the camera area, leaving the flash/front-camera controls unobstructed.
 - Clarified the camera instruction so the `Multiple codes` switch explains
   that it reads several codes at once.
 - Added monotonic version metadata (`0.1.1+2`) and a localized release-notes
   dialog shown once after each app update.
 
+### Bug fixes
+
+- Decoupled image, PDF and modern Office imports from continuous mode. Imported
+  results now open the normal result flow and are stored with the `Imported`
+  source, even when continuous scanning is enabled.
+
 ## 0.1.0 - 2026-09-05
+
+### Improvements
 
 - Added an offline Android QR/barcode scanner backed by `flutter_zxing`.
 - Added safe local parsing for URLs, phone, SMS, email, Wi-Fi, contacts,
@@ -114,5 +122,5 @@ All notable changes to KillQR are documented here.
   one-dimensional aspect ratio.
 - Added Android manifest audits and a release native smoke test.
 
-This release is a source build candidate. It has not been published to a
-store or submitted to F-Droid.
+This release is a source build candidate. It has not been published to a store
+or submitted to F-Droid.

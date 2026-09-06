@@ -26,7 +26,10 @@ Never commit the keystore, passwords, or a decoded key to the repository.
 
 ## Publish a release
 
-1. Update `pubspec.yaml`, `AppRelease`, localized version text, and `CHANGELOG.md`.
+1. Update `pubspec.yaml`, `AppRelease`, localized version text, and the English
+   `CHANGELOG.md`. Keep `CHANGELOG.pt-BR.md` synchronized for readers who use
+   Brazilian Portuguese; GitHub Release notes are extracted from the English
+   changelog so that each release has one consistent language.
 2. Run `flutter analyze`, `flutter test`, and a local release build.
 3. Commit the changes and create a matching tag, for example:
 

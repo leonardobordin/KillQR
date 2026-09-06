@@ -82,6 +82,10 @@ SHA-256 anexado a cada release antes de instalar um APK.
 Atualmente o projeto é distribuído como candidato de build a partir do código-
 fonte. A publicação em lojas não é feita automaticamente.
 
+Consulte o [changelog em inglês](CHANGELOG.md) ou o
+[changelog em português do Brasil](CHANGELOG.pt-BR.md) para ver o histórico de
+releases.
+
 ## Compilar a partir do código-fonte
 
 ### Requisitos

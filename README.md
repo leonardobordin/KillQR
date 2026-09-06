@@ -82,6 +82,9 @@ to each release before installing an APK.
 The project is currently distributed as a source-build candidate. Store
 publication is not performed automatically.
 
+See the [English changelog](CHANGELOG.md) or the
+[Brazilian Portuguese changelog](CHANGELOG.pt-BR.md) for release history.
+
 ## Build from source
 
 ### Requirements
