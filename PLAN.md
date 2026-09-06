@@ -3,7 +3,7 @@
 Status: implementação das Fases 1–12 concluída localmente; pacote Fase 13 preparado; API 26 e API 36 x86_64 validadas; ARM64, testes físicos/TalkBack e F-Droid ainda pendentes  
 Data da descoberta: 2026-09-05  
 Versão planejada do primeiro release: 0.1.3  
-Versão/build atual do candidato: 0.1.5+6  
+Versão/build atual do candidato: 0.1.6+7
 Escopo desta execução: Fases 1–13 implementadas sem publicação externa; pendências externas estão registradas como risco, não como código ausente
 
 ## Regra de governança

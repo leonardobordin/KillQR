@@ -6,6 +6,8 @@ All notable changes to KillQR are documented here.
 
 ## Unreleased
 
+## 0.1.6 - 2026-09-06
+
 ### Improvements
 
 - Made the camera scan area adjustable; only the selected central region is

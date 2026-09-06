@@ -404,7 +404,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'O KillQR armazena leituras localmente e funciona offline por padrão. A rede é usada somente ao verificar atualizações.';
 
   @override
-  String get version => 'Versão 0.1.5 (build 6)';
+  String get version => 'Versão 0.1.6 (build 7)';
 
   @override
   String get createdBy => 'Feito por Leonardo Silva Bordin';
@@ -492,6 +492,26 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get releaseNotesIntro => 'O que mudou nesta versão:';
+
+  @override
+  String get releaseNoteScanArea =>
+      'Agora é possível redimensionar a área de leitura da câmera; a leitura de um único código analisa somente a região selecionada.';
+
+  @override
+  String get releaseNoteTopControls =>
+      'A lanterna, a troca de câmera, a importação de documentos e os modos do scanner foram agrupados na barra superior, com menu adicional em telas estreitas.';
+
+  @override
+  String get releaseNoteZoom =>
+      'Adicionados controles inferiores para o tamanho da área de leitura e o zoom da câmera.';
+
+  @override
+  String get releaseNoteModeHelp =>
+      'Os modos contínuo e de vários códigos agora explicam seu funcionamento ao serem ativados e podem ser ocultados permanentemente.';
+
+  @override
+  String get releaseNoteCameraOverlay =>
+      'Removidos o antigo botão flutuante de vários códigos e o indicador do modo contínuo sobre a prévia da câmera.';
 
   @override
   String get releaseNoteContinuousIndicator =>
@@ -1051,7 +1071,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'O KillQR armazena leituras localmente e funciona offline por padrão. A rede é usada somente ao verificar atualizações.';
 
   @override
-  String get version => 'Versão 0.1.5 (build 6)';
+  String get version => 'Versão 0.1.6 (build 7)';
 
   @override
   String get createdBy => 'Feito por Leonardo Silva Bordin';
@@ -1139,6 +1159,26 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get releaseNotesIntro => 'O que mudou nesta versão:';
+
+  @override
+  String get releaseNoteScanArea =>
+      'Agora é possível redimensionar a área de leitura da câmera; a leitura de um único código analisa somente a região selecionada.';
+
+  @override
+  String get releaseNoteTopControls =>
+      'A lanterna, a troca de câmera, a importação de documentos e os modos do scanner foram agrupados na barra superior, com menu adicional em telas estreitas.';
+
+  @override
+  String get releaseNoteZoom =>
+      'Adicionados controles inferiores para o tamanho da área de leitura e o zoom da câmera.';
+
+  @override
+  String get releaseNoteModeHelp =>
+      'Os modos contínuo e de vários códigos agora explicam seu funcionamento ao serem ativados e podem ser ocultados permanentemente.';
+
+  @override
+  String get releaseNoteCameraOverlay =>
+      'Removidos o antigo botão flutuante de vários códigos e o indicador do modo contínuo sobre a prévia da câmera.';
 
   @override
   String get releaseNoteContinuousIndicator =>

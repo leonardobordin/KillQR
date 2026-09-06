@@ -6,7 +6,7 @@ metadata draft. It is not a submission and it does not publish anything.
 ## Current recipe inputs
 
 - application ID: `com.killstreak.killqr`;
-- version name/code: `0.1.5` / `6`;
+- version name/code: `0.1.6` / `7`;
 - minimum Android API: 26;
 - Flutter/Dart: 3.47.2 / 3.13.2;
 - Gradle wrapper: 9.3.1;

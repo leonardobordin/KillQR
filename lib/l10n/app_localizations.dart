@@ -846,7 +846,7 @@ abstract class AppLocalizations {
   /// No description provided for @version.
   ///
   /// In en, this message translates to:
-  /// **'Version 0.1.5 (build 6)'**
+  /// **'Version 0.1.6 (build 7)'**
   String get version;
 
   /// No description provided for @createdBy.
@@ -1016,6 +1016,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Changes in this version:'**
   String get releaseNotesIntro;
+
+  /// No description provided for @releaseNoteScanArea.
+  ///
+  /// In en, this message translates to:
+  /// **'The camera scan area can now be resized, and single-code scans analyze only the selected region.'**
+  String get releaseNoteScanArea;
+
+  /// No description provided for @releaseNoteTopControls.
+  ///
+  /// In en, this message translates to:
+  /// **'Flashlight, camera switching, document import and scanner modes are now grouped in the top bar, with an overflow menu on narrow screens.'**
+  String get releaseNoteTopControls;
+
+  /// No description provided for @releaseNoteZoom.
+  ///
+  /// In en, this message translates to:
+  /// **'Added scan-area and camera-zoom sliders at the bottom of the camera preview.'**
+  String get releaseNoteZoom;
+
+  /// No description provided for @releaseNoteModeHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Continuous and multiple-code modes now explain their behavior when enabled and can be dismissed permanently.'**
+  String get releaseNoteModeHelp;
+
+  /// No description provided for @releaseNoteCameraOverlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed the old floating multiple-code switch and continuous-mode status overlay from the camera preview.'**
+  String get releaseNoteCameraOverlay;
 
   /// No description provided for @releaseNoteContinuousIndicator.
   ///

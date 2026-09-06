@@ -34,7 +34,7 @@ Never commit the keystore, passwords, or a decoded key to the repository.
 3. Commit the changes and create a matching tag, for example:
 
    ```text
-   git tag -a v0.1.5 -m "KillQR 0.1.5"
+   git tag -a v0.1.6 -m "KillQR 0.1.6"
    git push origin main --follow-tags
    ```
 

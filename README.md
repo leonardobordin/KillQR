@@ -140,7 +140,7 @@ flow is documented in [`docs/BUILDING.md`](docs/BUILDING.md).
 
 ## Releases and automatic updates
 
-Push a semantic-version tag such as `v0.1.5` to run
+Push a semantic-version tag such as `v0.1.6` to run
 [`release.yml`](.github/workflows/release.yml). The workflow validates the
 project, runs tests, builds the signed APK, calculates its SHA-256 checksum and
 publishes a GitHub Release.

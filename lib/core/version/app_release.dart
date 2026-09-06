@@ -7,8 +7,8 @@ import '../../l10n/app_localizations.dart';
 class AppRelease {
   const AppRelease._();
 
-  static const version = '0.1.5';
-  static const buildNumber = 6;
+  static const version = '0.1.6';
+  static const buildNumber = 7;
   static const fullVersion = '$version+$buildNumber';
   static const _lastSeenPreference = 'last_seen_release';
 }
@@ -74,14 +74,15 @@ class _AppUpdateChangelogGateState extends State<AppUpdateChangelogGate> {
                   _ReleaseNotesSectionTitle(
                     text: l10n.releaseNotesImprovementsTitle,
                   ),
-                  _ReleaseNote(text: l10n.releaseNoteQuickTile),
-                  _ReleaseNote(text: l10n.releaseNoteGitHubUpdates),
-                  _ReleaseNote(text: l10n.releaseNoteVersioning),
+                  _ReleaseNote(text: l10n.releaseNoteScanArea),
+                  _ReleaseNote(text: l10n.releaseNoteTopControls),
+                  _ReleaseNote(text: l10n.releaseNoteZoom),
+                  _ReleaseNote(text: l10n.releaseNoteModeHelp),
                   const SizedBox(height: 8),
                   _ReleaseNotesSectionTitle(
                     text: l10n.releaseNotesBugFixesTitle,
                   ),
-                  _ReleaseNote(text: l10n.releaseNoteAccentSwitch),
+                  _ReleaseNote(text: l10n.releaseNoteCameraOverlay),
                 ],
               ),
             ),

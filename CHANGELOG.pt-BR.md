@@ -6,6 +6,8 @@ Todas as alterações importantes do KillQR estão documentadas aqui.
 
 ## Não lançado
 
+## 0.1.6 - 2026-09-06
+
 ### Melhorias
 
 - Tornada ajustável a área de leitura da câmera; somente a região central

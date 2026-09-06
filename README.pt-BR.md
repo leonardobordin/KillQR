@@ -142,7 +142,7 @@ Android está documentado em [`docs/BUILDING.md`](docs/BUILDING.md).
 
 ## Releases e atualizações automáticas
 
-Envie uma tag seguindo Semantic Versioning, como `v0.1.5`, para executar o
+Envie uma tag seguindo Semantic Versioning, como `v0.1.6`, para executar o
 [`release.yml`](.github/workflows/release.yml). O workflow valida o projeto,
 executa os testes, compila o APK assinado, calcula o checksum SHA-256 e publica
 uma GitHub Release.
