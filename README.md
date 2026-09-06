@@ -140,8 +140,8 @@ source tree under `lib/l10n/`.
 
 KillQR is created and maintained by **Leonardo Silva Bordin**.
 
-The source code is licensed under the [Apache License 2.0](LICENSE). Dependency
-and third-party notices are listed in
+The source code is licensed under the [Apache License 2.0](LICENSE). Copyright
+attribution is recorded in [`NOTICE`](NOTICE). Dependency and third-party notices are listed in
 [`docs/THIRD_PARTY_LICENSES.md`](docs/THIRD_PARTY_LICENSES.md). The project
 name and icon identify KillQR; referenced third-party names and assets remain
 under their respective owners and licenses.

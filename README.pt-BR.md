@@ -140,8 +140,8 @@ tradução são bem-vindas; o fluxo de localização está em `lib/l10n/`.
 
 O KillQR foi criado e é mantido por **Leonardo Silva Bordin**.
 
-O código-fonte está sob a [Licença Apache 2.0](LICENSE). Os avisos de
-dependências e terceiros estão listados em
+O código-fonte está sob a [Licença Apache 2.0](LICENSE). A atribuição de
+copyright está registrada em [`NOTICE`](NOTICE). Os avisos de dependências e terceiros estão listados em
 [`docs/THIRD_PARTY_LICENSES.md`](docs/THIRD_PARTY_LICENSES.md). Nomes e ativos
 de terceiros citados continuam sujeitos aos respectivos proprietários e
 licenças.
