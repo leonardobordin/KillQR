@@ -1,18 +1,26 @@
 # KillQR
 
 <p align="center">
-  <img src="assets/branding/killqr-app-icon-opaque.png" alt="KillQR icon" width="180">
+  <img src="assets/branding/killqr-app-icon-opaque.png" alt="KillQR icon" width="168">
 </p>
 
-<h3 align="center">Offline QR Code and Barcode Scanner & Generator for Android</h3>
+<h1 align="center">KillQR</h1>
 
 <p align="center">
-  Private by default · No account · No ads · Open source
+  <strong>Private, offline-first QR code and barcode toolkit for Android.</strong><br>
+  Scan, generate, import and manage codes without an account, ads or cloud storage.
 </p>
 
 <p align="center">
-  <a href="https://github.com/leonardobordin/KillQR/releases">Download</a> ·
-  <a href="#features">Features</a> ·
+  <a href="https://github.com/leonardobordin/KillQR/actions/workflows/ci.yml"><img src="https://github.com/leonardobordin/KillQR/actions/workflows/ci.yml/badge.svg" alt="CI status"></a>
+  <a href="https://github.com/leonardobordin/KillQR/releases/latest"><img src="https://img.shields.io/github/v/release/leonardobordin/KillQR?display_name=tag" alt="Latest release"></a>
+  <a href="https://developer.android.com/about/versions/oreo"><img src="https://img.shields.io/badge/Android-API%2026%2B-3DDC84?logo=android&logoColor=white" alt="Android API 26 or newer"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-2ea44f?logo=apache&logoColor=white" alt="Apache-2.0 license"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/leonardobordin/KillQR/releases/latest">Download latest APK</a> ·
+  <a href="#highlights">Highlights</a> ·
   <a href="docs/BUILDING.md">Build guide</a> ·
   <a href="docs/PRIVACY.md">Privacy</a>
 </p>
@@ -22,22 +30,34 @@
   <a href="README.pt-BR.md">Português (Brasil)</a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/leonardobordin/KillQR/actions/workflows/ci.yml"><img src="https://github.com/leonardobordin/KillQR/actions/workflows/ci.yml/badge.svg" alt="CI status"></a>
-  <a href="https://github.com/leonardobordin/KillQR/releases"><img src="https://img.shields.io/github/v/release/leonardobordin/KillQR?display_name=tag" alt="Latest release"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/leonardobordin/KillQR" alt="Apache-2.0 license"></a>
-</p>
+## Contents
 
-## What is KillQR?
+- [Overview](#overview)
+- [Highlights](#highlights)
+- [Download](#download)
+- [Build from source](#build-from-source)
+- [Releases and automatic updates](#releases-and-automatic-updates)
+- [Privacy and permissions](#privacy-and-permissions)
+- [Project map](#project-map)
+- [Contributing](#contributing)
+- [Ownership and license](#ownership-and-license)
+
+## Overview
 
 KillQR is an offline-first Android application for scanning and generating QR
 Codes and barcodes. Scans, generated content and history stay on the device.
 The app does not require an account, telemetry, advertisements, Google Play
 Services or cloud storage.
 
-KillQR is created and maintained by **Leonardo Silva Bordin**.
+It is made for people who want a focused QR and barcode tool with useful
+document support, local history and clear control over what leaves the device.
 
-## Features
+## Highlights
+
+| Scan | Create | Keep control |
+| --- | --- | --- |
+| Camera, images, PDFs and supported Office documents | QR Codes and supported linear formats | Local history, private mode and no account |
+| Multiple codes and continuous scanning | Custom RGB/HEX highlight color | Optional, user-controlled GitHub update checks |
 
 ### Scanning
 
@@ -70,20 +90,21 @@ KillQR is created and maintained by **Leonardo Silva Bordin**.
 - English and Brazilian Portuguese translations.
 - Quick Settings tile named **Scan with KillQR**.
 - Release notes shown once after an app update.
-- Optional GitHub release checks with manual checking, “Remind me later” and
-  “Don't remind me again” controls.
+- Optional GitHub release checks with manual checking, **Remind me later** and
+  **Don't remind me again** controls.
 
 ## Download
 
-Official APK files are published through [GitHub Releases](https://github.com/leonardobordin/KillQR/releases)
-by the signed GitHub Actions release workflow. Check the SHA-256 file attached
-to each release before installing an APK.
+Download the latest signed APK from
+[GitHub Releases](https://github.com/leonardobordin/KillQR/releases/latest), or
+browse the [complete release history](https://github.com/leonardobordin/KillQR/releases).
+Each release includes a SHA-256 checksum; verify it before installing the APK.
 
-The project is currently distributed as a source-build candidate. Store
-publication is not performed automatically.
+KillQR is currently distributed through GitHub Releases. Store publication is
+not automated yet.
 
-See the [English changelog](CHANGELOG.md) or the
-[Brazilian Portuguese changelog](CHANGELOG.pt-BR.md) for release history.
+Read the [English changelog](CHANGELOG.md) or the
+[Brazilian Portuguese changelog](CHANGELOG.pt-BR.md) for the release history.
 
 ## Build from source
 
@@ -96,9 +117,9 @@ See the [English changelog](CHANGELOG.md) or the
 
 ### Validate and build
 
-From the project root:
-
 ```powershell
+git clone https://github.com/leonardobordin/KillQR.git
+cd KillQR
 flutter pub get
 dart run build_runner build
 flutter gen-l10n
@@ -115,52 +136,69 @@ flow is documented in [`docs/BUILDING.md`](docs/BUILDING.md).
 ## Releases and automatic updates
 
 Push a semantic-version tag such as `v0.1.5` to run
-[`.github/workflows/release.yml`](.github/workflows/release.yml). The workflow
-validates the project, runs tests, builds the signed APK, calculates its
-SHA-256 checksum and publishes a GitHub Release.
+[`release.yml`](.github/workflows/release.yml). The workflow validates the
+project, runs tests, builds the signed APK, calculates its SHA-256 checksum and
+publishes a GitHub Release.
+
+The app can query official GitHub releases once a day or when requested in
+Settings. Automatic checks can be disabled, postponed with **Remind me later**
+or permanently dismissed with **Don't remind me again**. KillQR never installs
+an APK silently: Android always asks the user to confirm installation.
 
 The release process and required signing secrets are documented in
-[`docs/RELEASING.md`](docs/RELEASING.md). The app can query the official GitHub
-releases once a day or when requested in Settings. It never installs an APK
-silently: Android always asks the user to confirm installation.
+[`docs/RELEASING.md`](docs/RELEASING.md).
 
 ## Privacy and permissions
 
-KillQR processes scans and history locally. Network access is used only for the
-optional GitHub release check. Camera access is used for camera scanning, and
-document access is requested only when the user selects a file. PNG export uses
-the appropriate gallery permission on older Android versions.
+KillQR processes scans and history locally. The permissions have a narrow
+purpose:
+
+| Access | Used for |
+| --- | --- |
+| Camera | Live QR Code and barcode scanning |
+| Photos/files | Only when the user selects an image or document, or exports a PNG |
+| Internet | Optional GitHub release checks only |
 
 Read the full policy in [`docs/PRIVACY.md`](docs/PRIVACY.md).
+
+## Project map
+
+| Path | Purpose |
+| --- | --- |
+| [`lib/`](lib/) | Flutter application source |
+| [`test/`](test/) | Unit and widget tests |
+| [`docs/BUILDING.md`](docs/BUILDING.md) | Local build and Android smoke test |
+| [`docs/RELEASING.md`](docs/RELEASING.md) | Signed release process |
+| [`docs/PRIVACY.md`](docs/PRIVACY.md) | Data and permission policy |
+| [`docs/THIRD_PARTY_LICENSES.md`](docs/THIRD_PARTY_LICENSES.md) | Dependency license inventory |
+| [`CHANGELOG.md`](CHANGELOG.md) | English release history |
+| [`CHANGELOG.pt-BR.md`](CHANGELOG.pt-BR.md) | Brazilian Portuguese release history |
 
 ## Localization
 
 The app ships with English and Brazilian Portuguese. Contributions to the
-translation files are welcome; the localization workflow is described in the
-source tree under `lib/l10n/`.
+translation files are welcome; the localization source is under
+[`lib/l10n/`](lib/l10n/).
+
+## Contributing
+
+Bug reports, feature ideas and pull requests are welcome. For changes that
+affect scanning, document import, permissions or release behavior, include
+the Android version and a short reproduction or validation note.
 
 ## Ownership and license
 
-KillQR is created and maintained by **Leonardo Silva Bordin**.
+KillQR was created and is maintained by **Leonardo Silva Bordin**.
 
-The source code is licensed under the [Apache License 2.0](LICENSE). Copyright
-attribution is recorded in [`NOTICE`](NOTICE). Dependency and third-party notices are listed in
-[`docs/THIRD_PARTY_LICENSES.md`](docs/THIRD_PARTY_LICENSES.md). The project
-name and icon identify KillQR; referenced third-party names and assets remain
-under their respective owners and licenses.
-
-## Acknowledgements
-
-KillQR is built with Flutter, Drift, SQLite, ZXing and other open-source
-libraries. See the [third-party license inventory](docs/THIRD_PARTY_LICENSES.md)
-for the complete list.
-
-## Disclaimer
+The source code is licensed under the
+[Apache License 2.0](LICENSE). Copyright attribution is recorded in
+[`NOTICE`](NOTICE). Dependency and third-party notices are listed in
+[`docs/THIRD_PARTY_LICENSES.md`](docs/THIRD_PARTY_LICENSES.md).
 
 KillQR is an independent project and is not affiliated with Google, Android,
-GitHub, ZXing or any barcode provider. Always verify important data before
-using a scanned result.
+GitHub, ZXing or any barcode provider. Referenced third-party names and assets
+remain under their respective owners and licenses.
 
-## Author
-
-Made with care by **[Leonardo Silva Bordin](https://github.com/leonardobordin)**.
+<p align="center">
+  Made with care by <a href="https://github.com/leonardobordin"><strong>Leonardo Silva Bordin</strong></a>.
+</p>

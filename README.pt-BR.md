@@ -1,18 +1,26 @@
 # KillQR
 
 <p align="center">
-  <img src="assets/branding/killqr-app-icon-opaque.png" alt="Ícone do KillQR" width="180">
+  <img src="assets/branding/killqr-app-icon-opaque.png" alt="Ícone do KillQR" width="168">
 </p>
 
-<h3 align="center">Leitor e gerador offline de QR Codes e códigos de barras para Android</h3>
+<h1 align="center">KillQR</h1>
 
 <p align="center">
-  Privado por padrão · Sem conta · Sem anúncios · Código aberto
+  <strong>Kit privado e offline-first para QR Codes e códigos de barras no Android.</strong><br>
+  Leia, gere, importe e gerencie códigos sem conta, anúncios ou armazenamento em nuvem.
 </p>
 
 <p align="center">
-  <a href="https://github.com/leonardobordin/KillQR/releases">Download</a> ·
-  <a href="#funcionalidades">Funcionalidades</a> ·
+  <a href="https://github.com/leonardobordin/KillQR/actions/workflows/ci.yml"><img src="https://github.com/leonardobordin/KillQR/actions/workflows/ci.yml/badge.svg" alt="Status do CI"></a>
+  <a href="https://github.com/leonardobordin/KillQR/releases/latest"><img src="https://img.shields.io/github/v/release/leonardobordin/KillQR?display_name=tag" alt="Última release"></a>
+  <a href="https://developer.android.com/about/versions/oreo"><img src="https://img.shields.io/badge/Android-API%2026%2B-3DDC84?logo=android&logoColor=white" alt="Android API 26 ou superior"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-2ea44f?logo=apache&logoColor=white" alt="Licença Apache-2.0"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/leonardobordin/KillQR/releases/latest">Baixar o APK mais recente</a> ·
+  <a href="#destaques">Destaques</a> ·
   <a href="docs/BUILDING.md">Guia de compilação</a> ·
   <a href="docs/PRIVACY.md">Privacidade</a>
 </p>
@@ -22,22 +30,35 @@
   <a href="README.pt-BR.md">Português (Brasil)</a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/leonardobordin/KillQR/actions/workflows/ci.yml"><img src="https://github.com/leonardobordin/KillQR/actions/workflows/ci.yml/badge.svg" alt="Status do CI"></a>
-  <a href="https://github.com/leonardobordin/KillQR/releases"><img src="https://img.shields.io/github/v/release/leonardobordin/KillQR?display_name=tag" alt="Última release"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/leonardobordin/KillQR" alt="Licença Apache-2.0"></a>
-</p>
+## Conteúdo
 
-## O que é o KillQR?
+- [Visão geral](#visão-geral)
+- [Destaques](#destaques)
+- [Download](#download)
+- [Compilar a partir do código-fonte](#compilar-a-partir-do-código-fonte)
+- [Releases e atualizações automáticas](#releases-e-atualizações-automáticas)
+- [Privacidade e permissões](#privacidade-e-permissões)
+- [Mapa do projeto](#mapa-do-projeto)
+- [Contribuição](#contribuição)
+- [Autoria e licença](#autoria-e-licença)
+
+## Visão geral
 
 O KillQR é um aplicativo Android offline-first para ler e gerar QR Codes e
 códigos de barras. As leituras, os conteúdos gerados e o histórico permanecem
 no dispositivo. O app não exige conta, telemetria, anúncios, Google Play
 Services ou armazenamento em nuvem.
 
-O KillQR foi criado e é mantido por **Leonardo Silva Bordin**.
+Ele foi feito para quem quer uma ferramenta objetiva de QR Codes e códigos de
+barras, com suporte útil a documentos, histórico local e controle claro sobre
+o que sai do dispositivo.
 
-## Funcionalidades
+## Destaques
+
+| Ler | Criar | Manter o controle |
+| --- | --- | --- |
+| Câmera, imagens, PDFs e documentos Office compatíveis | QR Codes e formatos lineares compatíveis | Histórico local, modo privado e sem conta |
+| Vários códigos e leitura contínua | Cor de destaque RGB/HEX personalizada | Verificações opcionais de atualização pelo GitHub |
 
 ### Leitura
 
@@ -53,7 +74,7 @@ O KillQR foi criado e é mantido por **Leonardo Silva Bordin**.
 
 - Gere QR Codes e formatos lineares compatíveis, como CodaBar, EAN-8, EAN-13,
   ITF, UPC-A e UPC-E.
-- Escolha uma cor de destaque personalizada usando RGB ou HEX.
+- Escolha uma cor de destaque personalizada usando controles RGB ou HEX.
 - Exporte códigos gerados como PNG para a galeria e receba uma confirmação de
   salvamento.
 
@@ -71,16 +92,17 @@ O KillQR foi criado e é mantido por **Leonardo Silva Bordin**.
 - Tile de Configurações rápidas chamado **Escanear com KillQR**.
 - Novidades exibidas uma vez depois de uma atualização.
 - Verificação opcional de releases do GitHub, com verificação manual,
-  “Lembrar mais tarde” e “Não lembrar mais”.
+  **Lembrar mais tarde** e **Não lembrar mais**.
 
 ## Download
 
-Os APKs oficiais são publicados nas [GitHub Releases](https://github.com/leonardobordin/KillQR/releases)
-por meio do workflow assinado de release do GitHub Actions. Verifique o arquivo
-SHA-256 anexado a cada release antes de instalar um APK.
+Baixe o APK assinado mais recente nas
+[GitHub Releases](https://github.com/leonardobordin/KillQR/releases/latest) ou
+consulte o [histórico completo de releases](https://github.com/leonardobordin/KillQR/releases).
+Cada release inclui um checksum SHA-256; verifique-o antes de instalar o APK.
 
-Atualmente o projeto é distribuído como candidato de build a partir do código-
-fonte. A publicação em lojas não é feita automaticamente.
+Atualmente o KillQR é distribuído pelas GitHub Releases. A publicação em lojas
+ainda não é automatizada.
 
 Consulte o [changelog em inglês](CHANGELOG.md) ou o
 [changelog em português do Brasil](CHANGELOG.pt-BR.md) para ver o histórico de
@@ -97,9 +119,9 @@ releases.
 
 ### Validar e compilar
 
-Na raiz do projeto:
-
 ```powershell
+git clone https://github.com/leonardobordin/KillQR.git
+cd KillQR
 flutter pub get
 dart run build_runner build
 flutter gen-l10n
@@ -115,53 +137,70 @@ Android está documentado em [`docs/BUILDING.md`](docs/BUILDING.md).
 
 ## Releases e atualizações automáticas
 
-Envie uma tag seguindo Semantic Versioning, como `v0.1.5`, para executar
-o [`.github/workflows/release.yml`](.github/workflows/release.yml). O workflow
-valida o projeto, executa os testes, compila o APK assinado, calcula o checksum
-SHA-256 e publica uma GitHub Release.
+Envie uma tag seguindo Semantic Versioning, como `v0.1.5`, para executar o
+[`release.yml`](.github/workflows/release.yml). O workflow valida o projeto,
+executa os testes, compila o APK assinado, calcula o checksum SHA-256 e publica
+uma GitHub Release.
+
+O app pode consultar as releases oficiais do GitHub uma vez por dia ou quando
+solicitado nas Configurações. As verificações automáticas podem ser
+interrompidas, adiadas com **Lembrar mais tarde** ou desativadas com **Não
+lembrar mais**. O KillQR nunca instala um APK silenciosamente: o Android sempre
+pede confirmação ao usuário.
 
 O processo de release e os segredos de assinatura necessários estão documentados
-em [`docs/RELEASING.md`](docs/RELEASING.md). O app pode consultar as releases
-oficiais do GitHub uma vez por dia ou quando solicitado nas Configurações. Ele
-nunca instala um APK silenciosamente: o Android sempre pede confirmação.
+em [`docs/RELEASING.md`](docs/RELEASING.md).
 
 ## Privacidade e permissões
 
-O KillQR processa leituras e histórico localmente. A rede é usada somente para
-a verificação opcional de releases do GitHub. A câmera é usada para leituras por
-câmera, e o acesso a documentos é solicitado somente quando o usuário escolhe
-um arquivo. A exportação PNG usa a permissão de galeria apropriada nas versões
-antigas do Android.
+O KillQR processa leituras e histórico localmente. As permissões têm finalidade
+específica:
+
+| Acesso | Uso |
+| --- | --- |
+| Câmera | Leitura de QR Codes e códigos de barras ao vivo |
+| Fotos/arquivos | Somente quando o usuário escolhe uma imagem ou documento, ou exporta um PNG |
+| Internet | Somente para verificações opcionais de releases do GitHub |
 
 Leia a política completa em [`docs/PRIVACY.md`](docs/PRIVACY.md).
+
+## Mapa do projeto
+
+| Caminho | Finalidade |
+| --- | --- |
+| [`lib/`](lib/) | Código-fonte do aplicativo Flutter |
+| [`test/`](test/) | Testes unitários e de widgets |
+| [`docs/BUILDING.md`](docs/BUILDING.md) | Build local e smoke test Android |
+| [`docs/RELEASING.md`](docs/RELEASING.md) | Processo de release assinado |
+| [`docs/PRIVACY.md`](docs/PRIVACY.md) | Política de dados e permissões |
+| [`docs/THIRD_PARTY_LICENSES.md`](docs/THIRD_PARTY_LICENSES.md) | Inventário de licenças das dependências |
+| [`CHANGELOG.md`](CHANGELOG.md) | Histórico de releases em inglês |
+| [`CHANGELOG.pt-BR.md`](CHANGELOG.pt-BR.md) | Histórico de releases em português do Brasil |
 
 ## Traduções
 
 O app inclui inglês e português do Brasil. Contribuições para os arquivos de
-tradução são bem-vindas; o fluxo de localização está em `lib/l10n/`.
+tradução são bem-vindas; a fonte da localização está em [`lib/l10n/`](lib/l10n/).
+
+## Contribuição
+
+Relatos de bugs, ideias de funcionalidades e pull requests são bem-vindos.
+Para mudanças que afetem leitura, importação de documentos, permissões ou
+releases, inclua a versão do Android e uma breve nota de reprodução ou
+validação.
 
 ## Autoria e licença
 
 O KillQR foi criado e é mantido por **Leonardo Silva Bordin**.
 
 O código-fonte está sob a [Licença Apache 2.0](LICENSE). A atribuição de
-copyright está registrada em [`NOTICE`](NOTICE). Os avisos de dependências e terceiros estão listados em
-[`docs/THIRD_PARTY_LICENSES.md`](docs/THIRD_PARTY_LICENSES.md). Nomes e ativos
-de terceiros citados continuam sujeitos aos respectivos proprietários e
-licenças.
-
-## Agradecimentos
-
-O KillQR é construído com Flutter, Drift, SQLite, ZXing e outras bibliotecas de
-código aberto. Consulte o [inventário de licenças de terceiros](docs/THIRD_PARTY_LICENSES.md)
-para ver a lista completa.
-
-## Aviso
+copyright está registrada em [`NOTICE`](NOTICE). Os avisos de dependências e
+terceiros estão listados em [`docs/THIRD_PARTY_LICENSES.md`](docs/THIRD_PARTY_LICENSES.md).
 
 O KillQR é um projeto independente e não é afiliado ao Google, Android, GitHub,
-ZXing ou a qualquer fornecedor de códigos de barras. Sempre confira dados
-importantes antes de usar um resultado lido.
+ZXing ou a qualquer fornecedor de códigos de barras. Nomes e ativos de
+terceiros citados continuam sujeitos aos respectivos proprietários e licenças.
 
-## Autor
-
-Feito com cuidado por **[Leonardo Silva Bordin](https://github.com/leonardobordin)**.
+<p align="center">
+  Feito com cuidado por <a href="https://github.com/leonardobordin"><strong>Leonardo Silva Bordin</strong></a>.
+</p>
