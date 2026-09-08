@@ -34,6 +34,7 @@
 
 - [Visão geral](#visão-geral)
 - [Destaques](#destaques)
+- [Capturas de tela](#capturas-de-tela)
 - [Download](#download)
 - [Compilar a partir do código-fonte](#compilar-a-partir-do-código-fonte)
 - [Releases e atualizações automáticas](#releases-e-atualizações-automáticas)
@@ -99,6 +100,31 @@ o que sai do dispositivo.
 - Novidades exibidas uma vez depois de uma atualização.
 - Verificação opcional de releases do GitHub, com verificação manual,
   **Lembrar mais tarde** e **Não lembrar mais**.
+
+## Capturas de tela
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="docs/screenshots/scanner.png" alt="Scanner do KillQR com área de leitura ajustável" width="300"><br>
+      <sub>Scanner</sub>
+    </td>
+    <td align="center">
+      <img src="docs/screenshots/generator.png" alt="Pré-visualização do gerador de QR Code do KillQR" width="300"><br>
+      <sub>Gerador de QR Code</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="docs/screenshots/history.png" alt="Histórico do KillQR com um resultado de QR Code Pix salvo" width="300"><br>
+      <sub>Histórico</sub>
+    </td>
+    <td align="center">
+      <img src="docs/screenshots/settings.png" alt="Configurações do KillQR com opções de tema e cor de destaque" width="300"><br>
+      <sub>Configurações</sub>
+    </td>
+  </tr>
+</table>
 
 ## Download
 

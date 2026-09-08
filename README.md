@@ -34,6 +34,7 @@
 
 - [Overview](#overview)
 - [Highlights](#highlights)
+- [Screenshots](#screenshots)
 - [Download](#download)
 - [Build from source](#build-from-source)
 - [Releases and automatic updates](#releases-and-automatic-updates)
@@ -98,6 +99,31 @@ document support, local history and clear control over what leaves the device.
 - Release notes shown once after an app update.
 - Optional GitHub release checks with manual checking, **Remind me later** and
   **Don't remind me again** controls.
+
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="docs/screenshots/scanner.png" alt="KillQR scanner with adjustable scan area" width="300"><br>
+      <sub>Scanner</sub>
+    </td>
+    <td align="center">
+      <img src="docs/screenshots/generator.png" alt="KillQR QR Code generator preview" width="300"><br>
+      <sub>QR Code generator</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="docs/screenshots/history.png" alt="KillQR scan history with a saved Pix QR Code result" width="300"><br>
+      <sub>History</sub>
+    </td>
+    <td align="center">
+      <img src="docs/screenshots/settings.png" alt="KillQR settings with theme and accent color options" width="300"><br>
+      <sub>Settings</sub>
+    </td>
+  </tr>
+</table>
 
 ## Download
 
