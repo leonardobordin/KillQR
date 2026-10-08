@@ -51,9 +51,10 @@ checkout.
 
 ## Metadata boundary
 
-`metadata/com.killstreak.killqr.yml` and `fastlane/metadata/android` contain
-the upstream listing metadata. The complete build block, including the source
-commit hash, belongs in the separate `fdroiddata` repository and is validated
-by its CI.
+`metadata/com.killstreak.killqr.yml` is a ready copy of the build metadata to
+add as `metadata/com.killstreak.killqr.yml` in the separate `fdroiddata`
+repository. Its build block pins the full source commit for `v0.1.10`.
+`fastlane/metadata/android` supplies the localized listing, icon, screenshots
+and changelogs. The `fdroiddata` CI then validates the recipe.
 
 No signing key or store token belongs in this repository.
