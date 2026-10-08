@@ -1,6 +1,8 @@
 # KillQR privacy
 
-KillQR is designed to work without an account and works offline by default.
+KillQR does not require an account and processes scans locally. The F-Droid
+flavor is offline; the GitHub flavor can check for release updates and provides
+a setting to disable automatic checks.
 
 - Scanned values, notes, favorites, tags and settings stay in the app's
   private storage.
@@ -18,11 +20,12 @@ KillQR is designed to work without an account and works offline by default.
 - Opening a URL, dialer, SMS composer, mail app, map, contact editor, event
   editor, Wi-Fi settings or product search is always a user-confirmed action in
   another application.
-- The optional update checker contacts only the public GitHub releases API and
-  is used only when automatic checks are enabled or the user requests a manual
+- The GitHub flavor's optional update checker contacts only the public GitHub
+  releases API when automatic checks are enabled or the user requests a manual
   check. It sends no scan data, account information, telemetry, or device
   identifiers. Selecting an update opens the GitHub APK/release page for the
-  user to confirm installation.
+  user to confirm installation. The F-Droid flavor omits the checker and the
+  `INTERNET` permission; updates come through F-Droid.
 - JSON and CSV export files exist only when the user explicitly chooses a
   destination or share target. Exported data is not encrypted by KillQR.
 - Generated PNGs are written to the user-visible `Pictures/KillQR` gallery

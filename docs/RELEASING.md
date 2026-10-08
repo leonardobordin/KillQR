@@ -34,14 +34,17 @@ Never commit the keystore, passwords, or a decoded key to the repository.
 3. Commit the changes and create a matching tag, for example:
 
    ```text
-   git tag -a v0.1.6 -m "KillQR 0.1.6"
+   git tag -a v0.1.10 -m "KillQR 0.1.10"
    git push origin main --follow-tags
    ```
 
-4. GitHub Actions validates the tag, builds the APK with the repository name
-   embedded for the updater, calculates SHA-256, and creates the GitHub Release.
+4. GitHub Actions validates the tag, builds the `github` flavor with the
+   repository name embedded for the updater, calculates SHA-256, and creates
+   the GitHub Release. The separate `fdroid` flavor omits the updater and
+   `INTERNET` permission.
 
-The app queries `https://api.github.com/repos/<owner>/<repo>/releases/latest`
-when automatic checks are enabled or the user requests a manual check. It
-opens the APK asset or release page; Android still asks the user to confirm the
-installation.
+The GitHub flavor queries
+`https://api.github.com/repos/<owner>/<repo>/releases/latest` when automatic
+checks are enabled or the user requests a manual check. It opens the APK asset
+or release page; Android still asks the user to confirm the installation. The
+F-Droid flavor has no update-check request or Internet permission.

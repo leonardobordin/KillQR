@@ -1,0 +1,15 @@
+Scan and create QR codes and barcodes with a private, offline-first Android app.
+No account, ads, analytics, or telemetry.
+
+FEATURES
+* Scan with the camera, from images and PDF pages, or from embedded images in
+  modern Office documents.
+* Scan multiple codes at once or keep scanning continuously.
+* Create QR codes and supported linear barcodes.
+* Keep an optional local history with search, tags, notes, and favorites.
+* Import and export validated JSON and CSV files when you choose.
+* Choose from light, dark, and AMOLED themes and 8 app languages.
+
+Scans and history stay on the device. The F-Droid build does not request
+Internet access; updates are delivered through F-Droid. Camera access is
+requested only while scanning. External links and actions require confirmation.

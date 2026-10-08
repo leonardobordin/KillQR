@@ -1,0 +1,4 @@
+# Keep upstream SQLite amalgamation bytes intact; SQLite source contains
+# intentional trailing spaces that git diff --check would otherwise flag.
+third_party/sqlite/*.c -whitespace
+third_party/sqlite/*.h -whitespace

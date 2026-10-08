@@ -77,17 +77,17 @@ jobs:
             echo "::error::Tag $GITHUB_REF_NAME does not match version $version_name."
             exit 1
           fi
-          flutter build apk --release --dart-define=GITHUB_REPOSITORY="$GITHUB_REPOSITORY"
+          flutter build apk --release --flavor github --dart-define=GITHUB_REPOSITORY="$GITHUB_REPOSITORY"
           mkdir -p dist
           apk="dist/KillQR-$version_name.apk"
-          cp build/app/outputs/flutter-apk/app-release.apk "$apk"
+          cp build/app/outputs/flutter-apk/app-github-release.apk "$apk"
           sha256sum "$apk" | tee "${apk%.apk}.sha256"
           echo "version_name=$version_name" >> "$GITHUB_OUTPUT"
           echo "build_number=$build_number" >> "$GITHUB_OUTPUT"
 
       - name: Audit Android artifact
         run: |
-          pwsh -NoProfile -File scripts/audit_android.ps1 -ApkPath "dist/KillQR-${{ steps.package.outputs.version_name }}.apk"
+          pwsh -NoProfile -File scripts/audit_android.ps1 -ApkPath "dist/KillQR-${{ steps.package.outputs.version_name }}.apk" -ExpectedFlavor github
           pwsh -NoProfile -File scripts/check_prohibited_dependencies.ps1
 
       - name: Prepare release notes

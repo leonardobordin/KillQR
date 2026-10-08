@@ -6,9 +6,9 @@ $ErrorActionPreference = 'Stop'
 $package = 'com.killstreak.killqr'
 $component = "$package/.MainActivity"
 $oldPackage = 'com.planejador.planejador'
-$apk = Join-Path $PWD 'build\app\outputs\flutter-apk\app-release.apk'
+$apk = Join-Path $PWD 'build\app\outputs\flutter-apk\app-github-release.apk'
 
-flutter build apk --release --target=lib/spikes/native_smoke.dart
+flutter build apk --release --flavor github --target=lib/spikes/native_smoke.dart
 if (-not (Test-Path -LiteralPath $apk)) {
   throw "Smoke APK was not generated: $apk"
 }

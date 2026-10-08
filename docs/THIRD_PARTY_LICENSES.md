@@ -12,6 +12,7 @@ final release notice; the release phase must regenerate and review it from
 | camera | 0.12.1 | BSD-3-Clause | CameraX-backed camera plugin, transitively used by flutter_zxing |
 | drift | 2.34.4 | MIT | Typed SQLite access and migrations |
 | sqlite3 | 3.5.2 | MIT bindings; SQLite public domain | Native SQLite access |
+| SQLite amalgamation | 3.50.2 | Public domain; sqlite.org archive | Vendored C source compiled by the Dart native hook |
 | flutter_riverpod | 3.4.3 | MIT | State/injection foundation |
 | file_selector | 1.1.0 | BSD-3-Clause | Native file selection |
 | image_picker | 1.2.3 | Apache-2.0/BSD-3-Clause by component | Native image selection |
@@ -30,12 +31,16 @@ final release notice; the release phase must regenerate and review it from
 | Kotlin / AndroidX / CameraX | Gradle transitives | Apache-2.0 / BSD-3-Clause as declared upstream | Android build and camera runtime |
 
 The exact resolved versions are in `pubspec.lock`; Gradle's resolved graph is
-audited from the Android build cache during release review. `sqlite3` uses
-the modern Dart hooks path; no `sqlite3_flutter_libs` compatibility package
-is added. SQLite itself is public-domain software, while the Dart bindings are
-MIT. The source-build behavior still needs to be checked by an actual F-Droid
-builder before a submission.
+audited from the Android build cache during release review. `sqlite3` uses the
+modern Dart hooks path with `hooks.user_defines.sqlite3.source: source` and the
+SQLite 3.50.2 amalgamation in `third_party/sqlite`; it does not download the
+package's precompiled GitHub release library. No `sqlite3_flutter_libs`
+compatibility package is added. SQLite itself is public-domain software,
+while the Dart bindings are MIT. The isolated F-Droid build still needs to
+confirm the complete recipe.
 
 Native code and all transitive dependencies still require the release audit.
-No Google Play Services, Firebase, ML Kit, advertising SDK, telemetry SDK or
-runtime network feature is part of the intended application architecture.
+No Google Play Services, Firebase, ML Kit, advertising SDK, or telemetry SDK is
+part of the application. The optional GitHub release checker exists only in
+the `github` flavor; the `fdroid` flavor removes it and the `INTERNET`
+permission.

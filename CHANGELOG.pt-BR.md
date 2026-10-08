@@ -6,6 +6,13 @@ Todas as alterações importantes do KillQR estão documentadas aqui.
 
 ## Não lançado
 
+## 0.1.10 - 2026-10-07
+
+### Melhorias
+
+- Adicionada uma variante F-Droid que não verifica atualizações do GitHub nem
+  declara a permissão `INTERNET`.
+
 ## 0.1.9 - 2026-09-06
 
 ### Correções de bugs

@@ -901,7 +901,7 @@ abstract class AppLocalizations {
   /// No description provided for @version.
   ///
   /// In en, this message translates to:
-  /// **'Version 0.1.9 (build 10)'**
+  /// **'Version 0.1.10 (build 11)'**
   String get version;
 
   /// No description provided for @createdBy.
@@ -1149,6 +1149,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The multiple-code switch now follows the custom accent color.'**
   String get releaseNoteAccentSwitch;
+
+  /// No description provided for @releaseNoteFdroidBuild.
+  ///
+  /// In en, this message translates to:
+  /// **'The F-Droid build omits GitHub update checks and does not request Internet access.'**
+  String get releaseNoteFdroidBuild;
 
   /// No description provided for @updates.
   ///

@@ -54,12 +54,14 @@ class _DatabaseBootstrapGate extends ConsumerWidget {
         ),
       ),
       data: (_) => AppUpdateChangelogGate(
+        onCompleted: githubUpdateCheckerEnabled
+            ? (context) => checkForUpdates(
+                context: context,
+                settings: ref.read(appSettingsProvider),
+                automatic: true,
+              )
+            : null,
         child: const AppShell(),
-        onCompleted: (context) => checkForUpdates(
-          context: context,
-          settings: ref.read(appSettingsProvider),
-          automatic: true,
-        ),
       ),
     );
   }

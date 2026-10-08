@@ -1,0 +1,2 @@
+Adicionada uma variante F-Droid que não verifica atualizações do GitHub nem
+declara a permissão INTERNET.

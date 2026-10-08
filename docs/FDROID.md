@@ -1,12 +1,13 @@
 # F-Droid preparation
 
-This repository contains the source-build notes and a deliberately incomplete
-metadata draft. It is not a submission and it does not publish anything.
+This repository contains the `fdroid` product flavor, upstream store metadata,
+and the proposed source-build steps. The actual catalog submission is a
+separate merge request to `fdroiddata`.
 
 ## Current recipe inputs
 
 - application ID: `com.killstreak.killqr`;
-- version name/code: `0.1.6` / `7`;
+- version name/code: `0.1.10` / `11` (from `pubspec.yaml`);
 - minimum Android API: 26;
 - Flutter/Dart: 3.47.2 / 3.13.2;
 - Gradle wrapper: 9.3.1;
@@ -14,9 +15,11 @@ metadata draft. It is not a submission and it does not publish anything.
 - Kotlin: 2.4.0;
 - NDK: 28.2.13676358;
 - runtime manifest: camera plus legacy `WRITE_EXTERNAL_STORAGE` limited to
-  `maxSdkVersion=28` for explicit gallery saves; optional `INTERNET` only for
-  the user-controlled GitHub release checker;
-- release output: `build/app/outputs/flutter-apk/app-release.apk`.
+  `maxSdkVersion=28` for explicit gallery saves; the `fdroid` flavor omits
+  `INTERNET` and the GitHub release checker;
+- F-Droid build: `flutter build apk --release --flavor fdroid`;
+- F-Droid output: `build/app/outputs/flutter-apk/app-fdroid-release.apk`.
+- SQLite source: vendored SQLite 3.50.2 compiled from source by the Dart hook.
 
 ## Source build checks
 
@@ -28,22 +31,29 @@ flutter pub get --offline
 dart run build_runner build
 flutter analyze
 flutter test
-flutter build apk --release
-powershell -ExecutionPolicy Bypass -File scripts/audit_android.ps1
+flutter build apk --release --flavor fdroid
+powershell -ExecutionPolicy Bypass -File scripts/audit_android.ps1 -ApkPath build/app/outputs/flutter-apk/app-fdroid-release.apk -ExpectedFlavor fdroid
 powershell -ExecutionPolicy Bypass -File scripts/check_prohibited_dependencies.ps1
 ```
 
-The `sqlite3` package uses Dart native hooks. The final F-Droid recipe must
-confirm that the hook builds SQLite from accepted source inputs and does not
-fetch or execute an opaque prebuilt artifact. That check cannot be claimed by
-the local Flutter cache alone.
+After copying the build block to a local `fdroiddata` checkout, validate it
+with the F-Droid server tools:
+
+```text
+fdroid lint com.killstreak.killqr
+fdroid build com.killstreak.killqr
+```
+
+The `sqlite3` package uses Dart native hooks configured to compile the vendored
+SQLite source, rather than downloading its default precompiled release asset.
+The isolated F-Droid build must still confirm this behavior from a clean
+checkout.
 
 ## Metadata boundary
 
-`metadata/com.killstreak.killqr.yml` records the verifiable application
-metadata but intentionally omits `Repo` and an immutable `commit`: this
-workspace has no Git history or canonical public repository URL. Those fields
-must be filled by the project owner before any F-Droid lint or submission.
+`metadata/com.killstreak.killqr.yml` and `fastlane/metadata/android` contain
+the upstream listing metadata. The complete build block, including the source
+commit hash, belongs in the separate `fdroiddata` repository and is validated
+by its CI.
 
-No signing key, store token, remote push or external publication belongs in
-this repository.
+No signing key or store token belongs in this repository.

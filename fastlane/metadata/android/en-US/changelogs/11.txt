@@ -1,0 +1,2 @@
+Added an F-Droid build flavor that omits GitHub update checks and the INTERNET
+permission.

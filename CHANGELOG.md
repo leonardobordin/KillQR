@@ -6,6 +6,13 @@ All notable changes to KillQR are documented here.
 
 ## Unreleased
 
+## 0.1.10 - 2026-10-07
+
+### Improvements
+
+- Added an F-Droid build flavor that omits GitHub update checks and the
+  `INTERNET` permission.
+
 ## 0.1.9 - 2026-09-06
 
 ### Bug fixes

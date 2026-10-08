@@ -409,7 +409,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get aboutText => 'KillQR 默认将扫描结果保存在本地并离线运行。只有检查更新时才会使用网络。';
 
   @override
-  String get version => '版本 0.1.9（构建 10）';
+  String get version => '版本 0.1.10（构建 11）';
 
   @override
   String get createdBy => '作者：Leonardo Silva Bordin';
@@ -538,6 +538,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get releaseNoteAccentSwitch => '多代码开关现在会跟随自定义强调色。';
+
+  @override
+  String get releaseNoteFdroidBuild =>
+      'F-Droid 版本不會檢查 GitHub 更新，也不會要求網際網路存取權限。';
 
   @override
   String get updates => '更新';
@@ -1093,7 +1097,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get aboutText => 'KillQR 默认将扫描结果保存在本地并离线运行。只有检查更新时才会使用网络。';
 
   @override
-  String get version => '版本 0.1.9（构建 10）';
+  String get version => '版本 0.1.10（构建 11）';
 
   @override
   String get createdBy => '作者：Leonardo Silva Bordin';
@@ -1222,6 +1226,9 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get releaseNoteAccentSwitch => '多代码开关现在会跟随自定义强调色。';
+
+  @override
+  String get releaseNoteFdroidBuild => 'F-Droid 版本不检查 GitHub 更新，也不请求互联网访问权限。';
 
   @override
   String get updates => '更新';

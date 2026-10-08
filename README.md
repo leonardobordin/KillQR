@@ -158,24 +158,28 @@ flutter gen-l10n
 dart format --set-exit-if-changed .
 flutter analyze
 flutter test
-flutter build apk --release --dart-define=GITHUB_REPOSITORY=leonardobordin/KillQR
+flutter build apk --release --flavor github --dart-define=GITHUB_REPOSITORY=leonardobordin/KillQR
 ```
 
 The APK is generated at
-`build/app/outputs/flutter-apk/app-release.apk`. The complete Android smoke
-flow is documented in [`docs/BUILDING.md`](docs/BUILDING.md).
+`build/app/outputs/flutter-apk/app-github-release.apk`. To build the F-Droid
+variant, which does not check GitHub or declare `INTERNET`, run
+`flutter build apk --release --flavor fdroid`; its APK is
+`build/app/outputs/flutter-apk/app-fdroid-release.apk`. The complete Android
+smoke flow is documented in [`docs/BUILDING.md`](docs/BUILDING.md).
 
 ## Releases and automatic updates
 
-Push a semantic-version tag such as `v0.1.6` to run
+Push a semantic-version tag such as `v0.1.10` to run
 [`release.yml`](.github/workflows/release.yml). The workflow validates the
 project, runs tests, builds the signed APK, calculates its SHA-256 checksum and
 publishes a GitHub Release.
 
-The app can query official GitHub releases once a day or when requested in
+The GitHub flavor can query official releases once a day or when requested in
 Settings. Automatic checks can be disabled, postponed with **Remind me later**
-or permanently dismissed with **Don't remind me again**. KillQR never installs
-an APK silently: Android always asks the user to confirm installation.
+or permanently dismissed with **Don't remind me again**. The F-Droid flavor
+omits this checker; updates come through F-Droid. KillQR never installs an APK
+silently: Android always asks the user to confirm installation.
 
 The release process and required signing secrets are documented in
 [`docs/RELEASING.md`](docs/RELEASING.md).
@@ -189,7 +193,7 @@ purpose:
 | --- | --- |
 | Camera | Live QR Code and barcode scanning |
 | Photos/files | Only when the user selects an image or document, or exports a PNG |
-| Internet | Optional GitHub release checks only |
+| Internet | GitHub flavor only, for release checks; absent from the F-Droid flavor |
 
 Read the full policy in [`docs/PRIVACY.md`](docs/PRIVACY.md).
 

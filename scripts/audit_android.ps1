@@ -1,5 +1,7 @@
 param(
-  [string]$ApkPath = "build\app\outputs\flutter-apk\app-release.apk"
+  [string]$ApkPath = "build\app\outputs\flutter-apk\app-github-release.apk",
+  [ValidateSet('github', 'fdroid')]
+  [string]$ExpectedFlavor = 'github'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -31,6 +33,14 @@ if (Test-Path -LiteralPath $ApkPath) {
   }
   if ($foundForbidden) {
     throw "Forbidden permissions declared by APK: $($foundForbidden -join ', ')"
+  }
+  $hasInternetPermission =
+    $manifestXml -match 'android:name="android.permission.INTERNET"'
+  if ($ExpectedFlavor -eq 'fdroid' -and $hasInternetPermission) {
+    throw 'The F-Droid APK must not declare android.permission.INTERNET.'
+  }
+  if ($ExpectedFlavor -eq 'github' -and -not $hasInternetPermission) {
+    throw 'The GitHub APK must declare android.permission.INTERNET for release checks.'
   }
   if ($manifestXml -match 'android:name="android.permission.WRITE_EXTERNAL_STORAGE"') {
     if ($manifestXml -notmatch 'android:name="android.permission.WRITE_EXTERNAL_STORAGE"[^>]*android:maxSdkVersion="28"') {

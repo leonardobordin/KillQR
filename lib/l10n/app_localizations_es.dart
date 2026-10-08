@@ -429,7 +429,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'KillQR almacena los escaneos localmente y funciona sin conexión de forma predeterminada. La red solo se utiliza cuando buscas actualizaciones.';
 
   @override
-  String get version => 'Versión 0.1.9 (compilación 10)';
+  String get version => 'Versión 0.1.10 (compilación 11)';
 
   @override
   String get createdBy => 'Creado por Leonardo Silva Bordin';
@@ -569,6 +569,10 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get releaseNoteAccentSwitch =>
       'El interruptor de varios códigos ahora sigue el color de acento personalizado.';
+
+  @override
+  String get releaseNoteFdroidBuild =>
+      'La versión de F-Droid no incluye comprobaciones de actualizaciones de GitHub ni solicita acceso a Internet.';
 
   @override
   String get updates => 'Actualizaciones';

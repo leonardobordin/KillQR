@@ -14,23 +14,24 @@ dart run build_runner build
 dart format --set-exit-if-changed .
 flutter analyze
 flutter test
-flutter build apk --release
-powershell -ExecutionPolicy Bypass -File scripts/audit_android.ps1 -ApkPath build/app/outputs/flutter-apk/app-release.apk
+flutter build apk --release --flavor github
+powershell -ExecutionPolicy Bypass -File scripts/audit_android.ps1 -ApkPath build/app/outputs/flutter-apk/app-github-release.apk -ExpectedFlavor github
 powershell -ExecutionPolicy Bypass -File scripts/check_prohibited_dependencies.ps1
 ```
 
-The debug and profile manifests intentionally do not include the Flutter
-template's `INTERNET` permission. As a result, hot reload/debug transport may
-not work; use local tests and APK builds for the offline validation path.
+The default `github` flavor retains the release checker and its `INTERNET`
+permission. The `fdroid` flavor removes that permission, hides the update
+settings and skips the startup check. Build it with
+`flutter build apk --release --flavor fdroid`; the output is
+`build/app/outputs/flutter-apk/app-fdroid-release.apk`.
 
-The Flutter `integration_test` runner is not configured in this project because
-its Android driver requires a Dart VM service socket, which conflicts with the
-no-`INTERNET` manifest policy. Android-side native validation uses the dedicated
-release smoke target instead:
+The Flutter `integration_test` runner is not configured for the F-Droid flavor
+because its Android driver requires a Dart VM service socket. Android-side
+native validation uses the dedicated GitHub-flavor release smoke target:
 
 ```text
-flutter build apk --release --target=lib/spikes/native_smoke.dart
-adb install -r build/app/outputs/flutter-apk/app-release.apk
+flutter build apk --release --flavor github --target=lib/spikes/native_smoke.dart
+adb install -r build/app/outputs/flutter-apk/app-github-release.apk
 adb shell am force-stop com.killstreak.killqr
 adb shell am start -n com.killstreak.killqr/.MainActivity
 ```
@@ -46,8 +47,9 @@ checks embedded image media. Legacy binary Office files and QR codes drawn as
 text/vector shapes are not rendered by the offline implementation.
 
 The first phase uses Drift's `NativeDatabase.createInBackground` and the
-sqlite3 Dart hooks. The F-Droid source-build decision remains open until the
-native SQLite compilation is reproduced from an accepted source toolchain.
+sqlite3 Dart hooks. SQLite 3.50.2 is vendored under `third_party/sqlite` and
+compiled from source by the hook, avoiding its default GitHub prebuilt-library
+download. The F-Droid builder still needs to confirm the full isolated recipe.
 
 ## Toolchain matrix
 
@@ -79,18 +81,18 @@ was created:
 powershell -ExecutionPolicy Bypass -File scripts/run_android_smoke.ps1
 ```
 
-After the smoke, rebuild `flutter build apk --release` without `--target`; the
-last build target otherwise remains the smoke application.
+After the smoke, rebuild `flutter build apk --release --flavor github` without
+`--target`; the last build target otherwise remains the smoke application.
 
 ## Offline and release audit
 
 `flutter pub get --offline` checks that the lockfile and local cache are enough
-for Dart resolution. Gradle uses the wrapper and the source build contains no
-runtime network feature. The audit scripts inspect source and merged APK
-permissions and reject `INTERNET`, network-state, audio and broad storage
-permissions. The only storage exception is `WRITE_EXTERNAL_STORAGE` constrained
-to `maxSdkVersion=28`, used only for the explicit gallery-save action on legacy
-Android; API 29+ uses `MediaStore` without storage permission.
+for Dart resolution. Gradle uses the wrapper. The audit script checks merged
+APK permissions; pass `-ExpectedFlavor fdroid` to require that the F-Droid APK
+has no `INTERNET` permission. Both flavors remove network-state and audio
+permissions and constrain `WRITE_EXTERNAL_STORAGE` to `maxSdkVersion=28` for
+the explicit gallery-save action on legacy Android; API 29+ uses `MediaStore`
+without storage permission.
 
 The release APK is currently signed with the Flutter template debug key only
 so it can be installed for local QA. A distribution build must be signed by

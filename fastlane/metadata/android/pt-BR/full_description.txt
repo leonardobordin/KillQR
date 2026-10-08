@@ -1,0 +1,17 @@
+Leia e crie QR Codes e códigos de barras com um aplicativo Android privado e
+que funciona offline. Sem conta, anúncios, analytics ou telemetria.
+
+RECURSOS
+* Leia pela câmera, por imagens e páginas de PDF ou por imagens incorporadas
+  em documentos Office modernos.
+* Leia vários códigos de uma vez ou mantenha a leitura contínua.
+* Crie QR Codes e códigos de barras lineares compatíveis.
+* Mantenha um histórico local opcional com pesquisa, etiquetas, notas e
+  favoritos.
+* Importe e exporte arquivos JSON e CSV validados quando quiser.
+* Escolha entre temas claro, escuro e AMOLED e 8 idiomas.
+
+As leituras e o histórico permanecem no dispositivo. A versão F-Droid não
+solicita acesso à Internet; as atualizações são entregues pela F-Droid. O
+acesso à câmera é solicitado somente durante a leitura. Links e ações externas
+exigem confirmação.

@@ -3,11 +3,15 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show appFlavor;
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/theme/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 import '../version/app_release.dart';
+
+/// GitHub builds check upstream releases; the F-Droid flavor uses F-Droid for updates.
+const bool githubUpdateCheckerEnabled = appFlavor != 'fdroid';
 
 enum ReleaseUpdateError { notConfigured, network, invalidResponse }
 
@@ -198,6 +202,8 @@ Future<void> checkForUpdates({
   required AppSettingsController settings,
   bool automatic = false,
 }) async {
+  if (!githubUpdateCheckerEnabled) return;
+
   await settings.load();
   if (automatic && !settings.shouldCheckAutomatically) return;
   await settings.markUpdateCheck();

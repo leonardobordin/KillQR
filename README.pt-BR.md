@@ -160,25 +160,29 @@ flutter gen-l10n
 dart format --set-exit-if-changed .
 flutter analyze
 flutter test
-flutter build apk --release --dart-define=GITHUB_REPOSITORY=leonardobordin/KillQR
+flutter build apk --release --flavor github --dart-define=GITHUB_REPOSITORY=leonardobordin/KillQR
 ```
 
 O APK é gerado em
-`build/app/outputs/flutter-apk/app-release.apk`. O fluxo completo de smoke test
-Android está documentado em [`docs/BUILDING.md`](docs/BUILDING.md).
+`build/app/outputs/flutter-apk/app-github-release.apk`. Para compilar a variante
+F-Droid, que não consulta o GitHub e não declara `INTERNET`, use
+`flutter build apk --release --flavor fdroid`; o APK será
+`build/app/outputs/flutter-apk/app-fdroid-release.apk`. O fluxo completo de
+smoke test Android está documentado em [`docs/BUILDING.md`](docs/BUILDING.md).
 
 ## Releases e atualizações automáticas
 
-Envie uma tag seguindo Semantic Versioning, como `v0.1.6`, para executar o
+Envie uma tag seguindo Semantic Versioning, como `v0.1.10`, para executar o
 [`release.yml`](.github/workflows/release.yml). O workflow valida o projeto,
 executa os testes, compila o APK assinado, calcula o checksum SHA-256 e publica
 uma GitHub Release.
 
-O app pode consultar as releases oficiais do GitHub uma vez por dia ou quando
-solicitado nas Configurações. As verificações automáticas podem ser
+Na variante GitHub, o app pode consultar as releases oficiais uma vez por dia
+ou quando solicitado nas Configurações. As verificações automáticas podem ser
 interrompidas, adiadas com **Lembrar mais tarde** ou desativadas com **Não
 lembrar mais**. O KillQR nunca instala um APK silenciosamente: o Android sempre
-pede confirmação ao usuário.
+pede confirmação ao usuário. A variante F-Droid não inclui esse verificador; as
+atualizações chegam pela própria F-Droid.
 
 O processo de release e os segredos de assinatura necessários estão documentados
 em [`docs/RELEASING.md`](docs/RELEASING.md).
@@ -192,7 +196,7 @@ específica:
 | --- | --- |
 | Câmera | Leitura de QR Codes e códigos de barras ao vivo |
 | Fotos/arquivos | Somente quando o usuário escolhe uma imagem ou documento, ou exporta um PNG |
-| Internet | Somente para verificações opcionais de releases do GitHub |
+| Internet | Somente na variante GitHub, para consultar releases; ausente na variante F-Droid |
 
 Leia a política completa em [`docs/PRIVACY.md`](docs/PRIVACY.md).
 

@@ -142,28 +142,30 @@ class SettingsPage extends ConsumerWidget {
               ],
             ),
           ),
-          const SizedBox(height: 16),
-          _SectionTitle(title: l10n.updates),
-          Card(
-            child: Column(
-              children: [
-                SwitchListTile(
-                  title: Text(l10n.automaticUpdates),
-                  subtitle: Text(l10n.automaticUpdatesHint),
-                  value: settings.automaticUpdateChecks,
-                  onChanged: settings.setAutomaticUpdateChecks,
-                ),
-                ListTile(
-                  leading: const Icon(Icons.system_update_outlined),
-                  title: Text(l10n.checkForUpdates),
-                  subtitle: Text(l10n.checkForUpdatesHint),
-                  onTap: () =>
-                      checkForUpdates(context: context, settings: settings),
-                ),
-              ],
+          if (githubUpdateCheckerEnabled) ...[
+            const SizedBox(height: 16),
+            _SectionTitle(title: l10n.updates),
+            Card(
+              child: Column(
+                children: [
+                  SwitchListTile(
+                    title: Text(l10n.automaticUpdates),
+                    subtitle: Text(l10n.automaticUpdatesHint),
+                    value: settings.automaticUpdateChecks,
+                    onChanged: settings.setAutomaticUpdateChecks,
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.system_update_outlined),
+                    title: Text(l10n.checkForUpdates),
+                    subtitle: Text(l10n.checkForUpdatesHint),
+                    onTap: () =>
+                        checkForUpdates(context: context, settings: settings),
+                  ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
+            const SizedBox(height: 16),
+          ],
           _SectionTitle(title: l10n.searchEngines),
           _SearchEnginesCard(database: database),
           const SizedBox(height: 16),

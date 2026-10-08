@@ -1,18 +1,29 @@
-# Draft F-Droid metadata. A canonical public repository URL and release commit
-# must be supplied before this file is submitted to F-Droid. No publication is
-# performed by the project build.
+# Upstream listing metadata. The build block is maintained in fdroiddata.
 AutoName: KillQR
 Categories:
   - Utilities
+AuthorName: Leonardo Silva Bordin
+WebSite: https://github.com/leonardobordin/KillQR
+SourceCode: https://github.com/leonardobordin/KillQR
+IssueTracker: https://github.com/leonardobordin/KillQR/issues
 License: Apache-2.0
 Summary: Offline QR and barcode scanner
 Description: |
-  KillQR scans and creates QR codes and barcodes without an account, telemetry,
-  advertisements or a runtime network dependency. Results can be interpreted,
-  saved locally, tagged, searched and exported by the user.
+  KillQR scans and creates QR codes and barcodes without an account,
+  advertisements, analytics or telemetry. Scans and history stay on the
+  device, and the F-Droid build does not request Internet access.
   .
-  The app asks for camera access only while scanning and confirms every action
-  that opens another application.
-UpdateCheckMode: None
-# RepoType, Repo and Builds are intentionally omitted until a canonical source
-# repository and immutable release commit exist.
+  Import images, PDFs and modern Office documents, create QR codes, and keep an
+  optional local history with search, tags, notes and favorites. Export data
+  only when you choose to do so.
+  .
+  The camera is requested only while scanning. External links and actions
+  require confirmation. Updates for this build are delivered through F-Droid.
+RepoType: git
+Repo: https://github.com/leonardobordin/KillQR.git
+Changelog: https://github.com/leonardobordin/KillQR/blob/main/CHANGELOG.md
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 0.1.10
+CurrentVersionCode: 11

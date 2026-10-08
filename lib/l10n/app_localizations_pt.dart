@@ -426,7 +426,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'O KillQR armazena leituras localmente e funciona offline por padrão. A rede é usada somente ao verificar atualizações.';
 
   @override
-  String get version => 'Versão 0.1.9 (build 10)';
+  String get version => 'Versão 0.1.10 (build 11)';
 
   @override
   String get createdBy => 'Feito por Leonardo Silva Bordin';
@@ -566,6 +566,10 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get releaseNoteAccentSwitch =>
       'O botão de vários códigos agora acompanha a cor de destaque personalizada.';
+
+  @override
+  String get releaseNoteFdroidBuild =>
+      'A versão F-Droid não verifica atualizações do GitHub nem solicita acesso à Internet.';
 
   @override
   String get updates => 'Atualizações';
@@ -1115,7 +1119,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'O KillQR armazena leituras localmente e funciona offline por padrão. A rede é usada somente ao verificar atualizações.';
 
   @override
-  String get version => 'Versão 0.1.9 (build 10)';
+  String get version => 'Versão 0.1.10 (build 11)';
 
   @override
   String get createdBy => 'Feito por Leonardo Silva Bordin';
@@ -1255,6 +1259,10 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   @override
   String get releaseNoteAccentSwitch =>
       'O botão de vários códigos agora acompanha a cor de destaque personalizada.';
+
+  @override
+  String get releaseNoteFdroidBuild =>
+      'A versão F-Droid não verifica atualizações do GitHub nem solicita acesso à Internet.';
 
   @override
   String get updates => 'Atualizações';

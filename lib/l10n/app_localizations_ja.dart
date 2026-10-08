@@ -411,7 +411,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'KillQRはスキャン結果をローカルに保存し、初期設定ではオフラインで動作します。ネットワークは更新を確認するときだけ使用します。';
 
   @override
-  String get version => 'バージョン 0.1.9（ビルド10）';
+  String get version => 'バージョン 0.1.10（ビルド11）';
 
   @override
   String get createdBy => '作成者: Leonardo Silva Bordin';
@@ -548,6 +548,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get releaseNoteAccentSwitch => '複数コードのスイッチがカスタムアクセントカラーに従うようになりました。';
+
+  @override
+  String get releaseNoteFdroidBuild =>
+      'F-Droid版ではGitHubの更新確認を行わず、インターネットへのアクセスも要求しません。';
 
   @override
   String get updates => '更新';
